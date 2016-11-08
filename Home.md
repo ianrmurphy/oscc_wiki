@@ -11,7 +11,7 @@ When considering brake control in the Soul, it is important to note that these v
 
 To achieve lateral and longitudinal control of the Kia Soul it is necessary to control three separate automotive systems, interface with the existing vehicle CAN bus, and power the additional microprocessors and actuators. Each of the control modules introduced into the vehicle are built around Arduino controllers. Arduinos provide a cheap and easy way to introduce embedded controllers into the system, and offer flexibility when controlling vehicles other than the Kia Soul.
 
-A new network of controllers will be created that communicate via a CAN bus, called the **Control CAN bus**. Control commands can be published to this bus in the form of CAN frames from a node executing a path planning algorithm or a simple game controller.
+A new network of controllers will be created that communicate via a CAN bus, called the **Control CAN bus**. Control commands can be published to this bus in the form of CAN frames from a node executing a path planning algorithm or a simple game controller. An example of the latter is included in the repo in the [[control|https://github.com/PolySync/OSCC/tree/master/control/]] directory.
 
 PolySync is working on creating Arduino shields that provide all the function needed for interfacing with the steering, throttle, and brake system. Check back soon for schematics and board layouts! 
 
