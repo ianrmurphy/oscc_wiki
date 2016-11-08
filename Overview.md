@@ -14,4 +14,4 @@ These systems all work together to provide full control of the vehicle. The imag
 
 
 Below is a more detailed schematic of the control system. 
-<a href="https://github.com/PolySync/SelfDrivingSoul/raw/master/img/system.png">[[https://github.com/PolySync/SelfDrivingSoul/raw/master/img/system.png|alt=Detailed]]</a>
+<a href="https://github.com/PolySync/OSCC/raw/master/img/system.png">[[https://github.com/PolySync/OSCC/raw/master/img/system.png|alt=Detailed]]</a>
