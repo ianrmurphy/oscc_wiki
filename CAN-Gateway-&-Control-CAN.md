@@ -25,7 +25,7 @@ A [[CAN specification|CAN-specification]] exists for the Control CAN bus.
 | [[Solder Cup DB-9 Connector|https://www.amazon.com/Pc-Accessories-Connectors-Plastic-Connector/dp/B01HM6UBN0/ref=sr_1_4?ie=UTF8&qid=1476943955&sr=8-4&keywords=solder+DB-9+connector]] | $11.98 | 1 |
 
 ### Assembly
-1. Print the enclosure.
+1. Print [[the enclosure|https://github.com/PolySync/OSCC/blob/master/3d_models/dash_enclosure/STC_housing.STL]] if you haven't yet.
 2. Modify the SPI chip, select pin on one of the shields.
  - The Seeedstudio CAN shields have an SPI chip select pin pad on the board (default pin 9). Because two boards will be used simultaneously, one of the boards needs to be modified to use another pin (pin 10). The pad can be cut as described in the [[CAN shield documentation|http://wiki.seeed.cc/CAN-BUS_Shield_V1.2/]]. 
 3. Stack the shields and Arduino Uno and then place them in an enclosure.
