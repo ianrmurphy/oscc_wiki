@@ -26,7 +26,7 @@ Below is a diagram for a simple power distribution that meets the requirements d
 | [[Blue Sea Systems Inline Fuse Holder |https://www.amazon.com/Blue-Sea-Systems-Waterproof-Holder/dp/B004ZIUA62]] |     $43.51          | 2 |
 | [[ Weatherproof Automotive Relay & Holder|https://www.amazon.com/Pico-Terminal-Automotive-Change-Over-Connector/dp/B007UTFJHS]] | $15.69 | 2 | 
 | [[Seaboard HDPE sheet| https://www.amazon.com/Seaboard-Density-Polyethylene-Finish-Length/dp/B00JPHTPCI]] | $18.47 | 1 | 
-| [[E-stop Button Cup Holder Mount|https://github.com/PolySync/SelfDrivingSoul/blob/master/Power/Drawings/EStopHousing.STL ]] | 3D Printed | 1 |
+| [[E-stop Button Cup Holder Mount|https://github.com/PolySync/OSCC/blob/master/3d_models/estop_cupholder/EStopHousing.STL]] | 3D Printed | 1 |
 | Zip Ties | ? | 20 |
 | Zip Tie sticky foam mount | ? | 20 |
 
