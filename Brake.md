@@ -42,7 +42,7 @@ The new PolySync brake shield is undergoing testing and validation. Board design
 
 The brake actuator pigtail must be wired to the control board. There are many wires (38) on this connector and it helps to identify each one. The documents linked at the bottom of the page can help identify the wires. 21 of the wires are used and the rest are unused. You will also need to add a 4 pin connector to connect to the interrupt wires, which will be spliced into the stop light switch harness. 
 
-1. Print [[the enclosure|link-to-enclosure]].
+1. Print [[the enclosure|https://github.com/PolySync/OSCC/tree/master/3d_models/brake_enclosure]] and enclosure lid.
 2. Screw the Arduino Uno to the enclosure.
 3. Press the brake control board onto the Arduino.
 4. Lengthen the leads on the pigtail if necessary.
