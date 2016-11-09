@@ -2,9 +2,11 @@
 
 The factory standard Kia Soul has no ability to control braking electronically, as it is a traditional mechanical system. There are a number of models of vehicles with electronically controlled brake systems, notably the 2004-2009 Prius. This model Prius uses an electronically controlled actuator with no microprocessor, it is controlled from the Prius ECU. There are 7 pressure sensors on the device, 10 proportional solenoids, an accumulator, a pump, diagnostics components, and a pressure relief valve. This unit can be sourced from auto salvage yards and installed into the existing Kia brake system without adversely effecting the stock brake system and adding by-wire control. When sourcing these units be sure to request the pigtail adapter for the actuator as well.
 
+[[https://github.com/PolySync/OSCC/blob/master/assets/actuator.png|alt=Prius Brake Setup]]
+
 The image below illustrates the brake actuator as it is installed in a Prius. Notice you can see which solenoids are normally open and which are normally closed.
 
-[[https://github.com/PolySync/SelfDrivingSoul/blob/master/img/PriusBrakeActuator.png|alt=Prius Brake Setup]]
+[[https://github.com/PolySync/OSCC/blob/master/assets/PriusBrakeActuator.png|alt=Prius Brake Setup]]
 
 # Control
 
@@ -42,6 +44,8 @@ The new PolySync brake shield is undergoing testing and validation. Board design
 
 The brake actuator pigtail must be wired to the control board. There are many wires (38) on this connector and it helps to identify each one. The documents linked at the bottom of the page can help identify the wires. 21 of the wires are used and the rest are unused. You will also need to add a 4 pin connector to connect to the interrupt wires, which will be spliced into the stop light switch harness. 
 
+The actuator wiring pigtail has many leads, and is confusing at first. Use the pinout diagram linked at the bottom of the page to identify ever lead on the pigtail. While some wires colors are used more than once, you can use the groups of wires or the pin numbers to deduce which lead is which. 
+
 1. Print [[the enclosure|https://github.com/PolySync/OSCC/tree/master/3d_models/brake_enclosure]] and enclosure lid.
 2. Screw the Arduino Uno to the enclosure.
 3. Press the brake control board onto the Arduino.
@@ -69,9 +73,9 @@ The images below show the brake actuator as it is installed in a Kia Soul. You c
 5. The CAN shield is wired to the Control CAN bus.
 
 # Resources & Further Reading
-* [[Prius Brake Actuator Wiring Diagram|https://github.com/PolySync/SelfDrivingSoul/blob/master/Brake/Wiring/actuator-wiring.pdf]]
-* [[Actuator Pinout |https://github.com/PolySync/SelfDrivingSoul/blob/master/Brake/Wiring/actuator-pinout.pdf]]
-* [[Actuator Pinout description|https://github.com/PolySync/SelfDrivingSoul/blob/master/Brake/Wiring/actuator-pin-description.pdf]]
+
+* [[Actuator Pinout |https://github.com/PolySync/OSCC/blob/master/vehicle_info/toyota_prius_xw20/brake/brake_actuator_pinout.png]]
+
 
 # Additional Information
 The brake actuator PolySync uses is Toyota part number 44510-47050. There is a similar actuator with a larger accumulator used in the 06-07 Highlander Hybrid and 06-08 Lexus RX400H, part number 44510-48060.
