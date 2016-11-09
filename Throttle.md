@@ -48,5 +48,5 @@ The new PolySync throttle/steering shield is undergoing testing and validation. 
 
 
 # Resources & Further Reading
-- [[Accelerator position sensor values|https://github.com/PolySync/SelfDrivingSoul/blob/master/Throttle/Datasheets/PositionSensor.pdf]]
-- [[Accelerator Pedal Wiring Diagram|https://github.com/PolySync/SelfDrivingSoul/blob/master/Throttle/Datasheets/AcceleratorPositionSensorPinout.pdf]]
+- [[Accelerator Position Sensor Response|https://github.com/PolySync/OSCC/blob/master/vehicle_info/kia_soul_ps/throttle/throttle_sensor_spoof.ods]]
+- [[Accelerator Pedal Wiring Diagram|https://github.com/PolySync/OSCC/blob/master/vehicle_info/kia_soul_ps/throttle/APS_wiring.png]]
