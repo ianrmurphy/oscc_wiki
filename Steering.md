@@ -59,4 +59,5 @@ The wiring harness for the torque sensor can be easily spliced onto in order to 
 
 [[https://github.com/PolySync/SelfDrivingSoul/blob/master/img/steering_detail.png|alt=Steering Wiring]]
 
-## Software
+# Resources & Further Reading
+- [[Torque Sensor Response|https://github.com/PolySync/OSCC/blob/master/vehicle_info/kia_soul_ps/steering/torque_sensor_spoof.ods]]
