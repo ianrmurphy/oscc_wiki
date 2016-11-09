@@ -75,6 +75,7 @@ The images below show the brake actuator as it is installed in a Kia Soul. You c
 # Resources & Further Reading
 
 * [[Actuator Pinout |https://github.com/PolySync/OSCC/blob/master/vehicle_info/toyota_prius_xw20/brake/brake_actuator_pinout.png]]
+* [[Actuator Pressure Sensor Response|https://github.com/PolySync/OSCC/blob/master/vehicle_info/toyota_prius_xw20/brake/pressure_sensor_output.ods]]
 
 
 # Additional Information
