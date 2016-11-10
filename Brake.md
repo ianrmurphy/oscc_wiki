@@ -71,6 +71,7 @@ The images below show the brake actuator as it is installed in a Kia Soul. You c
 3. The wiring harness for the stop light switch is spliced into. Run wires from the splice through the firewall and up to the brake module and add a 4 pin connector. 
 4. The power for the unit is connected to the emergency stoppable power system.
 5. The CAN shield is wired to the Control CAN bus.
+6. The brakes will need to be bled after the actuator is installed. Luckily the actuator can supply the pressure needed to bleed the brake system. Connect a computer to the control module via a USB cable and issue a command to increase the pressure. Then bleed the brakes in a pattern specified by the vehicle manufacturer. Add additional brake fluid if necessary. 
 
 # Resources & Further Reading
 
