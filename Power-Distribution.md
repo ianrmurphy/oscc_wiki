@@ -1,6 +1,6 @@
 # Background
 
-All four of the modules that comprise the control system of the Kia need to be powered with 12 volts DC. Three of the units (throttle, steering, and brake) should have an emergency stop button that cuts power to the three units. However, the CAN gateway module should be powered on at ignition. Additionally, high-current power needs to be supplied to the brake module for the pump motor and the solenoids. All units should be fused. 
+All four of the modules that comprise the control system of the Kia need to be powered with 12 volts DC. Three of the units (throttle, steering, and brake) should have an emergency stop button that cuts power to the aforementioned units. However, the CAN gateway module should be powered on at ignition. Additionally, high-current power needs to be supplied to the brake module for the pump motor and the solenoids. All units should be fused. 
 
 An emergency stop button is placed in the car along with a rocker switch that switches power for the whole system. A relay is placed in the engine compartment along with fuses for the system. Power is run for the brake unit under the hood and the steering, throttle, and CAN module in the cabin. It is also likely that sensors and computers will be added, amping up the power requirements of the system.
 
