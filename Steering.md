@@ -9,7 +9,7 @@ Below is a simple wiring diagram showing the connection between the the EPAS mic
 ## Control
 
 
-The EPAS motor can be controlled by removing the torque sensor input to the EPAS microprocessor and injecting spoofed torques. However, because the microprocessor uses the feedback from the torque sensor for its internal control loop, a new control loop must be created. This control loop will take steering angle as its input. Steering angle data is available on the [[private Kia CAN bus|CAN-Gateway-&-Control-CAN]].
+The EPAS motor can be controlled by removing the torque sensor input to the EPAS microprocessor and injecting spoofed torques. However, because the microprocessor uses the feedback from the torque sensor for its internal control loop, a new control loop must be created. This control loop will accept steering angle as its input. Steering angle data is available on the [[private Kia CAN bus|CAN-Gateway-&-Control-CAN]].
 
 The image below shows a high level system of control after we create a system for spoofing torques.
 [[https://github.com/PolySync/SelfDrivingSoul/blob/master/img/steering_pid.png|alt=PID]]
@@ -27,11 +27,12 @@ The new PolySync throttle/steering shield is undergoing testing and validation. 
 
 | Part          | Price  |
 | ------------- | -----:|
-| [[Aruino Uno|https://www.seeedstudio.com/CANBUS-Shield-V12-p-2256.html]]      | $24.95 |
+| [[Arduino Uno|https://www.seeedstudio.com/CANBUS-Shield-V12-p-2256.html]]      | $24.95 |
 | [[PolySync Steering/Throttle Shield R0|http://www.polysync.io]]      | $50.00 |
 
 
 ### Assembly
+
 1. Print [[the enclosure|https://github.com/PolySync/OSCC/blob/master/3d_models/dash_enclosure/STC_housing.STL]] if you haven't yet.
 2. Screw the Arduino Uno to the enclosure.
 3. Press the steering control board onto the Arduino.
@@ -53,7 +54,7 @@ The wiring harness for the torque sensor can be easily spliced onto in order to 
  * **Green** from the APS goes to SIG IN A.
  * **Blue** from the APS goes to SIG IN B.
  * Remaining **green** goes to SIG OUT A.
- * Remaining **blue** goes to SIG OUT B
+ * Remaining **blue** goes to SIG OUT B.
 2. Power the unit with the emergency stop power bus.
 3. Wire the module to the Control CAN bus.
 
