@@ -6,7 +6,7 @@ Controlling a Kia Soul fully by wire requires the creation of three modules to i
 - [[CAN Gateway|CAN-Gateway-&-Control-CAN]]
 - [[Power Distribution|power-distribution]]
 
-These systems all work together to provide full control of the vehicle. The image below illustrates a high level overview of the systems needed to control a vehicle, as well a network of sensors used for perception.
+These systems all work together to provide full control of the vehicle. The image below illustrates a high level overview of the systems needed to control a vehicle, as well as a network of sensors used for perception.
 
 [[https://github.com/PolySync/OSCC/blob/master/assets/overview.png|alt=Overview]]
 
