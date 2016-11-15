@@ -37,7 +37,7 @@ The new PolySync brake shield is undergoing testing and validation. Board design
 | 04-09 Prius Brake actuator with wiring pigtail (Junkyard or eBay)     | ~$200.00 |
 | [[Brake Fluid Reservoir| https://www.amazon.com/Ninth-City-Motorcycle-Master-Cylinder-Reservoir/dp/B015NWTBF4/ref=sr_1_9?ie=UTF8&qid=1476400828&sr=8-9&keywords=brake+reservoir]]      | ~$5.99 |
 | [[Arduino Uno|https://www.seeedstudio.com/CANBUS-Shield-V12-p-2256.html]]      | $24.95 |
-| [[PolySync Brake Shield R0|https://www.polysync.io]]      | $50.00 |
+| [[PolySync Brake Shield R0|https://www.oscc.io]]      | $649 (purchased with complete shield kit) |
 
 
 ### Assembly
