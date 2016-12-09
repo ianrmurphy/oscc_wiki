@@ -35,7 +35,7 @@ The new PolySync throttle/steering shield is undergoing testing and validation. 
 
 1. Print [[the enclosure|https://github.com/PolySync/OSCC/blob/master/3d_models/dash_enclosure/STC_housing.STL]] if you haven't yet.
 2. Screw the Arduino Uno to the enclosure.
-3. Press the steering control board onto the Arduino.
+3. Press the sensor interface board onto the Arduino.
 
 ### Install
 

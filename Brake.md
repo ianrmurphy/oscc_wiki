@@ -48,7 +48,7 @@ The actuator wiring pigtail has many leads and can be confusing at first glance.
 
 1. Print [[the enclosure|https://github.com/PolySync/OSCC/tree/master/3d_models/brake_enclosure]] and enclosure lid.
 2. Screw the Arduino Uno to the enclosure.
-3. Press the brake control board onto the Arduino.
+3. Press the actuator control board onto the Arduino.
 4. Lengthen the leads on the pigtail if necessary.
 5. Feed the wires from the pigtail through the enclosure and attach them to the board using the screw terminals.
 6. Run four wires through the enclosure and attach them to stop light switch screw terminals.
