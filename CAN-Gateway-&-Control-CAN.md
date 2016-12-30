@@ -9,7 +9,7 @@ The Control CAN bus is the CAN bus that is added to the vehicle in order to link
 
 The image below demonstrates how the CAN gateway sits on both the Control CAN bus and the C-CAN bus, but only publishes CAN messages in one direction: towards the Control CAN bus from the C-CAN bus.
 
-[[https://github.com/PolySync/SelfDrivingSoul/blob/master/img/CAN_gateway.png|alt=CAN Gateway]] 
+[[https://github.com/PolySync/OSCC/blob/master/assets/CAN_gateway.png|alt=CAN Gateway]] 
 
 A [[CAN specification|CAN-specification]] exists for the Control CAN bus.
 
