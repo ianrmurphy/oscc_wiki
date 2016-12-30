@@ -60,10 +60,10 @@ The actuator is mounted in the engine compartment of the vehicle. The brake line
 The images below show the brake actuator as it is installed in a Kia Soul. You can see the enclosure for the micro controller as well as the added brake fluid reservoir.
 
 
-[[https://github.com/PolySync/SelfDrivingSoul/blob/master/img/new_brake_setup.png|alt=New Brake Setup]]
+[[https://github.com/PolySync/OSCC/blob/master/assets/new_brake_setup.png|alt=New Brake Setup]]
 
 
-[[https://github.com/PolySync/SelfDrivingSoul/blob/master/img/actuator_install.png|alt=Installed Actuator]]
+[[https://github.com/PolySync/OSCC/blob/master/assets/actuator_install.png|alt=Installed Actuator]]
 
 1. A brake fluid reservoir, connected with a T into the existing brake reservoir hose, will need to be mounted above the intake of the brake actuator unless the brake actuator can be installed below the level of brake fluid in the existing reservoir. It might be possible to mount the brake actuator below the stock brake fluid reservoir by moving the battery to the rear of the car and mount the brake actuator in the place of the battery.
 2. The brake module is mounted in the engine bay next to the brake actuator, close enough to connect the pigtail connector to the brake module. 
