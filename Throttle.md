@@ -2,7 +2,7 @@
 
 The throttle system of the Kia Soul is an Electric Throttle Control (ETC) system. Instead of a mechanical cable linkage between the throttle body and the accelerator pedal, there is a position sensor on the accelerator pedal and a motorized throttle body.
 
-[[https://github.com/PolySync/SelfDrivingSoul/blob/master/img/throttle_detail_stock.png|alt=Stock Throttle Wiring]]
+[[https://github.com/PolySync/oscc/blob/master/assets/throttle_detail_stock.png|alt=Stock Throttle Wiring]]
 
 # Control
 
@@ -31,7 +31,7 @@ The new PolySync throttle/steering shield is undergoing testing and validation. 
 
 ### Installation
 
-[[https://github.com/PolySync/SelfDrivingSoul/blob/master/img/throttle_detail.png|alt=Throttle Wiring]]
+[[https://github.com/PolySync/oscc/blob/master/assets/throttle_detail.png|alt=Throttle Wiring]]
 
 1. Cut the **blue** and **green** wires coming from the APS.
 2. Splice matching color wires onto the 4 new wire ends to lengthen each wire.
