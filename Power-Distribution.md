@@ -19,7 +19,7 @@ Below is a diagram for a simple power distribution that meets the requirements d
 | 22 AWG Stranded Hookup Wire (black) | $12.34 | 100' |
 | 22 AWG Stranded Hookup Wire (red) | $12.34 | 100' |
 | 22 AWG Stranded Hookup Wire (blue) | $6.43 | 25' |
-| Battery Lugs | $6.43 | 25' |
+| Battery Lugs 4 AWG| $6.43 | 10 |
 | [[S2ER-E3 Series Autonics E-Stop Button|http://www.ursele.com/contact/]]      | $7.95 | 1 |
 | [[20.2mm SPST Lighted Rocker|http://www.ursele.com/contact/]]      | $6.95 | 1 |
 | [[20.2mm SPST Momentary Button|http://www.ursele.com/contact/]]      | $6.95 | 1 |
