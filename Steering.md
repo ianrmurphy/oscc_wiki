@@ -27,7 +27,7 @@ The new PolySync throttle/steering shield is undergoing testing and validation. 
 
 | Part          | Price  |
 | ------------- | -----:|
-| [[Arduino Uno|https://www.seeedstudio.com/CANBUS-Shield-V12-p-2256.html]]      | $24.95 |
+| [[Arduino Uno|https://www.arduino.cc/en/Main/arduinoBoardUno]]      | $24.95 |
 | [[PolySync Steering/Throttle Shield R0|http://www.oscc.io]]      | TBD |
 
 
