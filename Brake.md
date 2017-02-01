@@ -44,7 +44,7 @@ The new PolySync brake shield is undergoing testing and validation. Board design
 | [[48" AN -3 brake line 90 degree/straight (2)|http://www.jegs.com/i/Earls/361/63010148/10002/-1]]|$21.36 ea.|
 | [[90 degree AN -3 male-to-female adapter (4)|http://www.jegs.com/i/Earls/361/966303/10002/-1]]|$6.58 ea. | 
 | [[3/8" barbed brass tee|http://www.jegs.com/i/Dorman-Products/326/788-031/10002/-1]]| $3.68 ea. | 
-| [[Arduino Uno|https://www.seeedstudio.com/CANBUS-Shield-V12-p-2256.html]]      | $24.95 |
+| [[Arduino Mega|https://www.arduino.cc/en/Main/arduinoBoardMega]] | $24.95 |
 | [[PolySync Brake Shield R0|https://www.oscc.io]]      | TBD |
 
 
