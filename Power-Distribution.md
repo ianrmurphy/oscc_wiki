@@ -22,7 +22,6 @@ Below is a diagram for a simple power distribution that meets the requirements d
 | Battery Lugs 4 AWG| $6.43 | 10 |
 | [[S2ER-E3 Series Autonics E-Stop Button|http://www.ursele.com/contact/]]      | $7.95 | 1 |
 | [[20.2mm SPST Lighted Rocker|http://www.ursele.com/contact/]]      | $6.95 | 1 |
-| [[20.2mm SPST Momentary Button|http://www.ursele.com/contact/]]      | $6.95 | 1 |
 | [[Blue Sea Systems Inline Fuse Holder |https://www.amazon.com/Blue-Sea-Systems-Waterproof-Holder/dp/B004ZIUA62]] |     $43.51          | 2 |
 | [[ Weatherproof Automotive Relay & Holder|https://www.amazon.com/Pico-Terminal-Automotive-Change-Over-Connector/dp/B007UTFJHS]] | $15.69 | 2 | 
 | [[Seaboard HDPE sheet| https://www.amazon.com/Seaboard-Density-Polyethylene-Finish-Length/dp/B00JPHTPCI]] | $18.47 | 1 | 
