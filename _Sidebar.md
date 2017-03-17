@@ -5,4 +5,4 @@
   * [[Steering|Steering]]
   * [[Throttle|Throttle]]
   * [[Brake|Brake]]
-  * [[Clearing Faults|Clearing-Faults]]
+  * [[Clearing Hard Faults|Clearing-Hard-Faults]]
