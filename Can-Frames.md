@@ -23,10 +23,10 @@ Scale Factor = 10
 
 Scale Factor = 128
 
-* LF Wheel Speed (mpg) = (Byte0 + Byte1 <<8) / Scale Factor
-* RF Wheel Speed (mpg) = (Byte2 + Byte3 <<8) / Scale Factor
-* LR Wheel Speed (mpg) = (Byte4 + Byte5 <<8) / Scale Factor
-* RR Wheel Speed (mpg) = (Byte6 + Byte7 <<8) / Scale Factor
+* LF Wheel Speed (mph) = (Byte0 + Byte1 <<8) / Scale Factor
+* RF Wheel Speed (mph) = (Byte2 + Byte3 <<8) / Scale Factor
+* LR Wheel Speed (mph) = (Byte4 + Byte5 <<8) / Scale Factor
+* RR Wheel Speed (mph) = (Byte6 + Byte7 <<8) / Scale Factor
 
 ## Brake Pressure
 **CAN ID = 0x220**
