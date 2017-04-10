@@ -1,9 +1,9 @@
 There are a number of different CAN buses present on the Kia Soul. This page captures what is known about the various CAN frames the C-CAN bus hosts on the Kia Soul. The C-CAN bus on the Kia Soul is accessible through the OBD connector on pin 6 (CAN High) and pin 14 (CAN Low) The currently understood CAN frames are:
 
-* [Turn Signals](#Turn Signals)
-* [Steering Wheel Angle](#Steering Wheel Angle)
-* [Wheel Speeds](#Wheel Speeds)
-* [Brake Pressure](#Brake Pressure)
+* [Turn Signals](#Turn-Signals)
+* [Steering Wheel Angle](#Steering-Wheel-Angle)
+* [Wheel Speeds](#Wheel-Speeds)
+* [Brake Pressure](#Brake-Pressure)
 
 ## Turn Signals
 **CAN ID = 0x18**
