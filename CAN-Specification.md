@@ -46,17 +46,17 @@
 
 
 * **bits 0-15** | Pressure Command
- * 0 = 0% 65535 = 100%
+ 	* 0 = 0% 65535 = 100%
 * **bit 16** | Brake On
- * 0 = off, 1 = on
-* **bit 17-23** | Reserved0
+ 	* 0 = off, 1 = on
+* **bit 17-23** | Reserved
 * **bit 24** | Enabled
 * **bit 25** | Clear
 * **bit 26** | Ignore
-* **bit 27-31** | Reserved1
-* **bit 32-39** | Reserved2
-* **bit 40-47** | Reserved3
-* **bit 48-55** | Reserved4
+* **bit 27-31** | Reserved
+* **bit 32-39** | Reserved
+* **bit 40-47** | Reserved
+* **bit 48-55** | Reserved
 * **bit 56-63** | Count
 
 
@@ -69,11 +69,11 @@
 
 
 * **bits 0-15** | Pedal Input
- * 0 = 0% 65535 = 100%
+ 	* 0 = 0% 65535 = 100%
 * **bits 16-31** | Pedal Command
- * 0 = 0% 65535 = 100%
+ 	* 0 = 0% 65535 = 100%
 * **bits 32-47** | Pedal Output
- * 0 = 0% 65535 = 100%k
+ 	* 0 = 0% 65535 = 100%
 * **bit 48** | Brake On Output
 * **bit 49** | Brake On Command
 * **bit 50** | Brake On Input
@@ -98,15 +98,15 @@
 
 
 * **bits 0-15** | Pedal Command
- * 0 = 0% 65535 = 100%
-* **bits 16-23** | Reserved0
+ 	* 0 = 0% 65535 = 100%
+* **bits 16-23** | Reserved
 * **bit 24** | Enabled
 * **bit 25** | Clear
 * **bit 26** | Ignore
-* **bit 27-31** | Reserved1
-* **bit 32-39** | Reserved2
-* **bit 40-47** | Reserved3
-* **bit 55-48** | Reserved4
+* **bit 27-31** | Reserved
+* **bit 32-39** | Reserved
+* **bit 40-47** | Reserved
+* **bit 55-48** | Reserved
 * **bit 56-63** | Count
 
 
@@ -119,12 +119,12 @@
 
 
 * **bits 0-15** | Pedal Input
- * 0 = 0% 65535 = 100%
+ 	* 0 = 0% 65535 = 100%
 * **bits 16-31** | Pedal Command
- * 0 = 0% 65535 = 100%
+ 	* 0 = 0% 65535 = 100%
 * **bits 32-47** | Pedal Output
- * 0 = 0% 65535 = 100%k
-* **bit 48-51** | Reserved0
+ 	* 0 = 0% 65535 = 100%
+* **bit 48-51** | Reserved
 * **bits 52-55** | Watchdog Source
 * **bit 56** | Enabled
 * **bit 57** | Override
@@ -145,17 +145,17 @@
 
 
 * **bits 0-15** | Steering Wheel Angle Command
- * 0 = 0% 65535 = 100%
+	* 0 = 0% 65535 = 100%
 * **bit 16** | Enabled
 * **bit 17** | Clear
 * **bit 18** | Ignore
-* **bit 19-23** | Reserved0
+* **bit 19-23** | Reserved
 * **bit 24-31** | Steering Wheel Max Velocity
- * 0 = No limit
- * Value 0x01 means 2 degrees/second.
- * Value 0xFA means 500 degrees/second. [2 degrees/second per bit]
+ 	* 0 = No limit
+ 	* Value 0x01 means 2 degrees/second.
+ 	* Value 0xFA means 500 degrees/second. [2 degrees/second per bit]
 * **bit 32-47** | Torque
-* **bit 48-55** | Reserved3
+* **bit 48-55** | Reserved
 * **bit 56-63** | Count
 
 
@@ -168,11 +168,11 @@
 
 
 * **bits 0-15** | Angle
- * 0 = 0% 65535 = 100%
+ 	* 0 = 0% 65535 = 100%
 * **bits 16-31** | Angle Command
- * 0 = 0% 65535 = 100%
+ 	* 0 = 0% 65535 = 100%
 * **bits 32-47** | Vehicle Speed
- * Vehicle speed. [0.01 kilometers/hour per bit]
+ 	* Vehicle speed. [0.01 kilometers/hour per bit]
 * **bit 48-55** | Torque
 * **bit 56** | Enabled
 * **bit 57** | Override
