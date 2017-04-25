@@ -8,10 +8,10 @@ Controlling a Kia Soul fully by wire requires the creation of three modules to i
 
 These systems all work together to provide full control of the vehicle. The image below illustrates a high level overview of the systems needed to control a vehicle, as well as a network of sensors used for perception.
 
-[[https://github.com/PolySync/OSCC/blob/master/assets/overview.png|alt=Overview]]
+![Overview](images/system/system_overview.png)
 
 
 
 
-Below is a more detailed schematic of the control system. 
-<a href="https://github.com/PolySync/OSCC/raw/master/assets/system.png">[[https://github.com/PolySync/OSCC/raw/master/assets/system.png|alt=Detailed]]</a>
+Below is a more detailed schematic of the control system.
+![Detailed](images/system/system_schematic.png)

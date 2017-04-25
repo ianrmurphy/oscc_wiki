@@ -5,11 +5,11 @@ The Kia Soul has a handful of different CAN buses on board. The [[C-CAN bus|can-
 Additionally, it’s not a great idea to simply extend the C-CAN bus by adding new control modules onto the bus. This is because the new control system will be publishing CAN messages using CAN frames that may interfere with the existing C-CAN protocol. Because of this, it is necessary to bridge C-CAN messages to the new Control CAN bus.
 
 
-The Control CAN bus is the CAN bus that is added to the vehicle in order to link all the new control modules, as well as send control commands to those modules. 
+The Control CAN bus is the CAN bus that is added to the vehicle in order to link all the new control modules, as well as send control commands to those modules.
 
 The image below demonstrates how the CAN gateway sits on both the Control CAN bus and the C-CAN bus, but only publishes CAN messages in one direction: towards the Control CAN bus from the C-CAN bus.
 
-[[https://github.com/PolySync/OSCC/blob/master/assets/CAN_gateway.png|alt=CAN Gateway]] 
+![CAN Gateway](images/can/can_gateway_diagram.png)
 
 A [[CAN specification|CAN-specification]] exists for the Control CAN bus.
 
@@ -27,7 +27,7 @@ A [[CAN specification|CAN-specification]] exists for the Control CAN bus.
 ### Assembly
 1. Print [[the enclosure|https://github.com/PolySync/OSCC/blob/master/3d_models/dash_enclosure/STC_housing.STL]] if you haven't yet.
 2. Modify the SPI chip, select pin on one of the shields.
- - The Seeedstudio CAN shields have an SPI chip select pin pad on the board (default pin 9). Because two boards will be used simultaneously, one of the boards needs to be modified to use another pin (pin 10). The pad can be cut as described in the [[CAN shield documentation|http://wiki.seeed.cc/CAN-BUS_Shield_V1.2/]]. 
+ - The Seeedstudio CAN shields have an SPI chip select pin pad on the board (default pin 9). Because two boards will be used simultaneously, one of the boards needs to be modified to use another pin (pin 10). The pad can be cut as described in the [[CAN shield documentation|http://wiki.seeed.cc/CAN-BUS_Shield_V1.2/]].
 3. Stack the shields and Arduino Uno and then place them in an enclosure.
 4. Upload the firmware from the repo.
 

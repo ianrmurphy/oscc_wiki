@@ -4,7 +4,7 @@ The steering system of the Kia Soul is an Electric Power Assisted Steering (EPAS
 
 Below is a simple wiring diagram showing the connection between the the EPAS microprocessor and the torque sensor.
 
-[[https://github.com/PolySync/OSCC/blob/master/assets/steering_detail_stock.png|alt=Stock Steering Wiring]]
+![Stock Steering Wiring](images/steering_module/steering_stock_diagram.png)
 
 ## Control
 
@@ -12,7 +12,7 @@ Below is a simple wiring diagram showing the connection between the the EPAS mic
 The EPAS motor can be controlled by removing the torque sensor input to the EPAS microprocessor and injecting spoofed torques. However, because the microprocessor uses the feedback from the torque sensor for its internal control loop, a new control loop must be created. This control loop will accept steering angle as its input. Steering angle data is available on the [[private Kia CAN bus|CAN-Gateway-&-Control-CAN]].
 
 The image below shows a high level system of control after we create a system for spoofing torques.
-[[https://github.com/PolySync/OSCC/blob/master/assets/steering_pid.png|alt=PID]]
+![PID](images/steering_module/steering_pid.png)
 
 The Kia ECU implements fault detection on the torque sensor by detecting discontinuities in the analog signals coming from the sensors. If any discontinuities appear the car will go into a fault state, with the symptom of disabling the power steering. To overcome this, the new torque spoofing microprocessor will interpolate between the torque sensor values and the spoofed values before sensing spoofed signals.
 
@@ -20,7 +20,7 @@ A relay is used to switch the input of the EPAS microprocessor from the stock to
 
 ## Hardware
 
-The new PolySync throttle/steering shield is undergoing testing and validation. Board designs and schematics will be available as soon at the boards are thoroughly proven. 
+The new PolySync throttle/steering shield is undergoing testing and validation. Board designs and schematics will be available as soon at the boards are thoroughly proven.
 
 
 ### Parts
@@ -41,7 +41,7 @@ The new PolySync throttle/steering shield is undergoing testing and validation. 
 
 The wiring harness for the torque sensor can be easily spliced onto in order to inject spoofed torque signals to the EPAS microcontroller. The image below shows the high current motor and the connector coming from the torque sensor. There are **redundant torque sensors** (2) and we need to splice into both signals and spoof both.
 
-[[https://github.com/PolySync/OSCC/blob/master/assets/steering_motor.png|alt=Sensor]]
+![Sensor](images/steering_module/steering_motor.png)
 
 
 
@@ -58,7 +58,7 @@ The wiring harness for the torque sensor can be easily spliced onto in order to 
 2. Power the unit with the emergency stop power bus.
 3. Wire the module to the Control CAN bus.
 
-[[https://github.com/PolySync/OSCC/blob/master/assets/steering_detail.png|alt=Steering Wiring]]
+![Steering Wiring](images/steering_module/steering_diagram.png)
 
 # Resources & Further Reading
-- [[Torque Sensor Response|https://github.com/PolySync/OSCC/blob/master/vehicle_info/kia_soul_ps/steering/torque_sensor_spoof.ods]]
+- [Torque Sensor Response](docs/steering_module/torque_sensor_spoof.ods)

@@ -6,25 +6,25 @@ The first step is to make sure you correct whatever caused the hard fault in the
 
 1. Switch the vehicle and all OSCC modules off.
 
-2. Plug the diagnostics tool into the OBDII connection on the vehicle. Most likely this connector will be plugged into the OSCC modules so you will have to disconnect this before attaching the diagnostics tool.![OBDII connector](images/OBDII_connector.jpg)![OBDII connector connected](images/OBDII_connector-connected.jpg)
+2. Plug the diagnostics tool into the OBDII connection on the vehicle. Most likely this connector will be plugged into the OSCC modules so you will have to disconnect this before attaching the diagnostics tool.![OBDII connector](images/obd_ii/obd_ii_connector.jpg)![OBDII connector connected](images/obd_ii/obd_ii_connector_connected.jpg)
 
 3. Switch the vehicle ignition to "ON" but do not start the ignition.
 
-4. Start up your diagnostics tool by pressing the button on the device. ![VCI OBD diagnostic tool](images/VCI-OBD-diagnostic-tool.jpg)
+4. Start up your diagnostics tool by pressing the button on the device. ![VCI OBD diagnostic tool](images/obd_ii/vci_obd_diagnostic_tool.jpg)
 
-5. Connect whatever device you are using to talk to the diagnostics tool. ![Connect device to diagnostic tool](images/Connect-device-to-diagnostic-tool.jpg)![Start up software](images/gds_startup_screen.png)
+5. Connect whatever device you are using to talk to the diagnostics tool. ![Connect device to diagnostic tool](images/obd_ii/diagnostic_tool_connected.jpg)![Start up software](images/gds/gds_startup_screen.png)
 
-6. Once the software is started up select the make and model of your vehicle (Kia Soul PS or AM). The year should be whatever is closest to your vehicle year. ![Select vehicle](images/gds_select_vehicle.png)
+6. Once the software is started up select the make and model of your vehicle (Kia Soul PS or AM). The year should be whatever is closest to your vehicle year. ![Select vehicle](images/gds/gds_select_vehicle.png)
 
-7. In the next screen select the systems which you want to analyze. You can select as many as you need, typically at least "EPS" is necessary. ![Select systems](images/gds_select_systems.png)
+7. In the next screen select the systems which you want to analyze. You can select as many as you need, typically at least "EPS" is necessary. ![Select systems](images/gds/gds_select_systems.png)
 
-8. Make sure you follow the instructions on this screen and then hit "OK". ![Connection check](images/gds_conn_check.png)
+8. Make sure you follow the instructions on this screen and then hit "OK". ![Connection check](images/gds/gds_conn_check.png)
 
-9. Select "DTC Analysis" on this screen. ![Home screen](images/gds_home_screen.png)
+9. Select "DTC Analysis" on this screen. ![Home screen](images/gds/gds_home_screen.png)
 
-10. The software should try and connect to the diagnostics tool at this point. If there is an error in connecting then try steps 1 through 9, in order, again. ![Connection initializing](images/gds_init_comm.png)![Connection fail](images/gds_conn_fail.png)
+10. The software should try and connect to the diagnostics tool at this point. If there is an error in connecting then try steps 1 through 9, in order, again. ![Connection initializing](images/gds/gds_init_comm.png)![Connection fail](images/gds/gds_conn_fail.png)
 
-11. Once the connection is successful select "Erase All DTC." If the process is successful then the software should indicate this when it is finished. If there are no DTCs but there was a successful connection then there may be something else wrong with your system. ![Erase DTCs](images/gds_clear_dtc.png)
+11. Once the connection is successful select "Erase All DTC." If the process is successful then the software should indicate this when it is finished. If there are no DTCs but there was a successful connection then there may be something else wrong with your system. ![Erase DTCs](images/gds/gds_clear_dtc.png)
 
 12. Now you can disconnect the diagnostics tool and return the vehicle to a workable state. Start this process by turning the vehicle completely off.
 

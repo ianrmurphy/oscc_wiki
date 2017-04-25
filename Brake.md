@@ -2,11 +2,11 @@
 
 As braking in the Kia Soul is a traditional mechanical system, the factory standard Soul has no ability to control braking electronically. There are a number of models of vehicles with electronically controlled brake systems, notably the 2004-2009 Prius. This model Prius uses an electronically controlled actuator with no microprocessor, it is controlled from the Prius ECU. There are 7 pressure sensors on the device, 10 proportional solenoids, an accumulator, a pump, diagnostics components, and a pressure relief valve. This unit can be sourced from auto salvage yards and installed into the existing Kia brake system without adversely effecting the stock brake system and adding by-wire control. When sourcing these units be sure to request the pigtail adapter for the actuator as well.
 
-[[https://github.com/PolySync/OSCC/blob/master/assets/actuator.png|alt=Prius Brake Setup]]
+![Prius Brake Setup](images/brake_module/brake_actuator.png)
 
 The image below illustrates the brake actuator as it is installed in a Prius. Notice you can see which solenoids are normally open and which are normally closed.
 
-[[https://github.com/PolySync/OSCC/blob/master/assets/PriusBrakeActuator.png|alt=Prius Brake Setup]]
+![Prius Brake Setup](images/brake_module/brake_stock_diagram.png)
 
 # Control
 
@@ -22,7 +22,7 @@ In an autonomous situation (where a driver is not using the brake pedal) the 2 m
 
 The accumulator has a pressure sensor for detecting the pressure of the fluid built up in the accumulator. The accumulator pump is a high current (~30 Amps) pump and can be operated at a slow or fast speed.
 
-Using an Arduino, a PID controller is built to manage the brake cylinder's pressure at the wheel. The brake pressure of each wheel is controlled by pulsing the solenoids to fill pressure to the wheels, checking the pressure, and then either increasing or decreasing based on the new pressure reading until the target pressure is reached. The PWM duty cycle of the solenoids is a function of the PID controller. 
+Using an Arduino, a PID controller is built to manage the brake cylinder's pressure at the wheel. The brake pressure of each wheel is controlled by pulsing the solenoids to fill pressure to the wheels, checking the pressure, and then either increasing or decreasing based on the new pressure reading until the target pressure is reached. The PWM duty cycle of the solenoids is a function of the PID controller.
 
 There is small "stop light switch" on the brake pedal. This switch controls the brake lights and communicates to the ECU that the brake pedal has been depressed. If the Kia Soul brakes without pressure being increased at the wheels and the brake pedal has not been depressed, the car throws a fault. Because of this it is necessary to emulate the stop light switch with our control unit.
 
@@ -42,8 +42,8 @@ The new PolySync brake shield is undergoing testing and validation. Board design
 | [[AN -3 Cap (2)|https://www.summitracing.com/parts/aer-fbm3479/overview/1]]|$18.97 (for 6)|
 | [[26" AN -3 brake line 90 degree/straight (2)|http://www.jegs.com/i/Earls/361/63010126/10002/-1]]|$15.84 ea.|
 | [[48" AN -3 brake line 90 degree/straight (2)|http://www.jegs.com/i/Earls/361/63010148/10002/-1]]|$21.36 ea.|
-| [[90 degree AN -3 male-to-female adapter (4)|http://www.jegs.com/i/Earls/361/966303/10002/-1]]|$6.58 ea. | 
-| [[3/8" barbed brass tee|http://www.jegs.com/i/Dorman-Products/326/788-031/10002/-1]]| $3.68 ea. | 
+| [[90 degree AN -3 male-to-female adapter (4)|http://www.jegs.com/i/Earls/361/966303/10002/-1]]|$6.58 ea. |
+| [[3/8" barbed brass tee|http://www.jegs.com/i/Dorman-Products/326/788-031/10002/-1]]| $3.68 ea. |
 | [[Arduino Mega|https://www.arduino.cc/en/Main/arduinoBoardMega]] | $24.95 |
 | [[PolySync Brake Shield R0|https://www.oscc.io]]      | TBD |
 
@@ -51,9 +51,9 @@ The new PolySync brake shield is undergoing testing and validation. Board design
 
 ### Assembly
 
-The brake actuator pigtail must be wired to the control board. There are 38 wires on this connector and it helps to identify each one. The documents linked at the bottom of the page can help identify the wires. It is important to note that 21 of the wires are used and the rest are unused. You will also need to add a 4 pin connector to connect to the interrupt wires, which will be spliced into the stop light switch harness. 
+The brake actuator pigtail must be wired to the control board. There are 38 wires on this connector and it helps to identify each one. The documents linked at the bottom of the page can help identify the wires. It is important to note that 21 of the wires are used and the rest are unused. You will also need to add a 4 pin connector to connect to the interrupt wires, which will be spliced into the stop light switch harness.
 
-The actuator wiring pigtail has many leads and can be confusing at first glance. Use the pinout diagram linked at the bottom of the page to identify every lead on the pigtail. While some wires colors are used more than once, you can use the groups of wires or the pin numbers to deduce which lead is which. 
+The actuator wiring pigtail has many leads and can be confusing at first glance. Use the pinout diagram linked at the bottom of the page to identify every lead on the pigtail. While some wires colors are used more than once, you can use the groups of wires or the pin numbers to deduce which lead is which.
 
 1. Print [[the enclosure|https://github.com/PolySync/OSCC/tree/master/3d_models/brake_enclosure]] and enclosure lid.
 2. Screw the Arduino Uno to the enclosure.
@@ -69,22 +69,22 @@ The actuator is mounted in the engine compartment of the vehicle. The brake line
 The images below show the brake actuator as it is installed in a Kia Soul. You can see the enclosure for the micro controller as well as the added brake fluid reservoir.
 
 
-[[https://github.com/PolySync/OSCC/blob/master/assets/new_brake_setup.png|alt=New Brake Setup]]
+![New Brake Setup](images/brake_module/brake_diagram.png)
 
 
-[[https://github.com/PolySync/OSCC/blob/master/assets/actuator_install.png|alt=Installed Actuator]]
+![Installed Actuator](images/brake_module/brake_actuator_installed.png)
 
 1. A brake fluid reservoir, connected with a T into the existing brake reservoir hose, will need to be mounted above the intake of the brake actuator unless the brake actuator can be installed below the level of brake fluid in the existing reservoir. It might be possible to mount the brake actuator below the stock brake fluid reservoir by moving the battery to the rear of the car and mount the brake actuator in the place of the battery.
-2. The brake module is mounted in the engine bay next to the brake actuator, close enough to connect the pigtail connector to the brake module. 
-3. The wiring harness for the stop light switch is spliced into. Run wires from the splice through the firewall and up to the brake module and add a 4 pin connector. 
+2. The brake module is mounted in the engine bay next to the brake actuator, close enough to connect the pigtail connector to the brake module.
+3. The wiring harness for the stop light switch is spliced into. Run wires from the splice through the firewall and up to the brake module and add a 4 pin connector.
 4. The power for the unit is connected to the emergency stoppable power system.
 5. The CAN shield is wired to the Control CAN bus.
-6. The brakes will need to be bled after the actuator is installed. Luckily, the actuator can supply the pressure needed to bleed the brake system. Connect a computer to the control module via a USB cable and issue a command to increase the pressure. Then bleed the brakes in a pattern specified by the vehicle manufacturer. Add additional brake fluid if necessary. 
+6. The brakes will need to be bled after the actuator is installed. Luckily, the actuator can supply the pressure needed to bleed the brake system. Connect a computer to the control module via a USB cable and issue a command to increase the pressure. Then bleed the brakes in a pattern specified by the vehicle manufacturer. Add additional brake fluid if necessary.
 
 # Resources & Further Reading
 
-* [[Actuator Pinout |https://github.com/PolySync/OSCC/blob/master/vehicle_info/toyota_prius_xw20/brake/brake_actuator_pinout.png]]
-* [[Actuator Pressure Sensor Response|https://github.com/PolySync/OSCC/blob/master/vehicle_info/toyota_prius_xw20/brake/pressure_sensor_output.ods]]
+* [Actuator Pinout](images/brake_module/brake_actuator_pinout.png)
+* [Actuator Pressure Sensor Response](docs/brake_module/pressure_sensor_output.ods)
 
 
 # Additional Information
