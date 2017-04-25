@@ -1,4 +1,4 @@
-![Logo](images/oscc_logo_title.png)
+![Logo](https://raw.githubusercontent.com/wiki/PolySync/OSCC/images/oscc_logo_title.png)
 
 
 The Open Source Car Control (OSCC) project was created to give everyone the opportunity to build their own development autonomous vehicle. Other by-wire vehicle platforms (components + vehicle) can cost upwards of $140,000, and are “black boxed,” preventing further investigation and innovation into autonomy. We figured out a way to offer a more affordable, open-source option to the public. By using tools and parts common across robotics and automotive, you can use our kits combined with the software of your choice, to build a self-driving car for under $10,000.
@@ -7,7 +7,7 @@ This wiki will guide you through the process, acting as the main source of docum
 # Introduction
 
 
-![Driving](images/driving.gif)
+![Driving](https://raw.githubusercontent.com/wiki/PolySync/OSCC/images/driving.gif)
 
 The 2014 Kia Soul ships with **steering-by-wire** and **throttle-by-wire**. This means the actuators of these two systems are, at some point, controlled electronically. Because of this, these systems can be exploited in order to gain full control of the actuators.
 
