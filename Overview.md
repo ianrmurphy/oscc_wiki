@@ -15,3 +15,8 @@ These systems all work together to provide full control of the vehicle. The imag
 
 Below is a more detailed schematic of the control system.
 ![Detailed](images/system/system_schematic.png)
+
+
+
+
+For information on properly starting up an OSCC vehicle please take a look at the ![OSCC operation manual](images/OSCCOperationManual.pdf)
