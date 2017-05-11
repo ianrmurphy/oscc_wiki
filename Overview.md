@@ -1,3 +1,5 @@
+For information on properly starting up an OSCC vehicle please take a look at the [OSCC operation manual](images/OSCCOperationManual.pdf)
+
 Controlling a Kia Soul fully by wire requires the creation of three modules to interface with physical actuators, a CAN gateway module to translate Kia specific CAN messages onto a new **Control CAN bus**, and a power distribution system that has emergency stop capability. Each of these individual systems have their own page.
 
 - [[Steering|steering]]
@@ -15,8 +17,3 @@ These systems all work together to provide full control of the vehicle. The imag
 
 Below is a more detailed schematic of the control system.
 ![Detailed](images/system/system_schematic.png)
-
-
-
-
-For information on properly starting up an OSCC vehicle please take a look at the ![OSCC operation manual](images/OSCCOperationManual.pdf)
