@@ -18,9 +18,9 @@ The first step is to make sure you correct whatever caused the hard fault in the
 
 7. In the next screen select the systems which you want to analyze. You can select as many as you need, typically at least "EPS" is necessary. ![Select systems](images/gds/gds_select_systems.png)
 
-8. Make sure you follow the instructions on this screen and then hit "OK". ![Connection check](images/gds/gds_conn_check.png)
+8. Select "Fault Code Searching" on the same screen. ![Select Fault Code Searching](images/gds/gds_fault_code_searching_button.png)
 
-9. Select "Fault Code Searching" on this screen. ![Select systems](images/gds/gds_select_systems.png)
+9. Make sure you follow the instructions on this screen and then hit "OK". ![Connection check](images/gds/gds_conn_check.png)
 
 10. The software will begin searching for fault codes. ![Fault code search](images/gds/gds_fault_code_search.png)
 
