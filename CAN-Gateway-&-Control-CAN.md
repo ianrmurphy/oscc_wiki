@@ -43,6 +43,5 @@ The CAN Gateway module is a simple install. One of the Arduino CAN shields needs
 ### Resources & Further Reading
 
 * [[Seeedstudio CAN Shield 1.2 Documentation|http://wiki.seeed.cc/CAN-BUS_Shield_V1.2/]]
-* [[Kia CAN Protocol|Can-Frames]]
 * [[Control CAN Specification|CAN-specification]]
 * [[Making your own Twisted Pair|https://www.electronics-notes.com/articles/constructional_techniques/hints_and_tips/how-to-make-twisted-pair-wire.php]]
