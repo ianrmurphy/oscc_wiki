@@ -1,184 +1,129 @@
-# Chassis State 1
-**ID**: 0x210
+# Kia OBD-II CAN network messages
 
-**Source**: CAN Gateway Module
+## Steering Wheel Angle
 
-**Transmit Rate**: 50 ms
+### ID: 0x2B0
 
+| Bits  | Value |
+| ----- | ----- |
+| 0-15  | Steering Wheel Angle (in 1/10th degrees, need to scale up by 10 to get value in degrees) |
+| 16-63 | Reserved (we aren't using these for anything currently) |
 
+## Wheel Speed
 
+### ID: 0x4B0
 
+| Bits  | Value |
+| ----- | ----- |
+| 0-15  | Front left wheel speed (in 1/50th mph, need to scale up by 50 to get value in mph) |
+| 16-31 | Front right wheel speed (same units as above) |
+| 32-47 | Rear left wheel speed (same units as above) 	|
+| 48-63 | Rear right wheel speed (same units as above) 	|
+ 
+## Brake Pressure
 
-* **bit 0** | Reserved
-* **bit 1** | Steering Wheel Angle Valid
-* **bit 2** | Steering Wheel Angle Rate Valid
-* **bit 3** | Brake Pressure Valid
-* **bit 4** | Wheel Speed Valid
-* **bit 5** | Left Turn Signal On
-* **bit 6** | Right Turn Signal On
-* **bit 7** | Brake Signal On
-* **bits 8-15** | Reserved
-* **Byte 16-31** | Steering Wheel Angle
-* **Byte 32-47** | Steering Wheel Angle Rate
-* **Byte 48-63** | Brake Pressure
+### ID: 0x220
 
+| Bits  | Value |
+| ----- | ----- |
+| 0-15  | Master cylinder pressure (1/10th bars, need to scale up by 10 to get value in bars) |
+| 16-63 | Reserved (not being used currently) |
 
-# Chassis State 2
-**ID**: 0x211
+# OSCC Specific Reports and Commands
 
-**Source**: CAN Gateway Module
+## Steering Command
 
-**Transmit Rate**: 50 ms
+### ID: 0x64
 
+### Transmit Rate: controlled via application sending speed. We control it through joystick commander.
 
-* **bits 0-15** | LF Wheel Speed
-* **bits 16-31** | RF Wheel Speed
-* **bits 32-47** | LR Wheel Speed
-* **bits 48-63** | RR Wheel Speed
+| Bits  | Value |
+| ----- | ----- |
+| 0-15  | OSCC Magic number Bits . We use these to distinguish our messages from the OBD-II messages sent by the vehicle. |
+| 16-31 | Spoof value low -- in steps, to be written directly to the DAC. |
+| 32-47 | Spoof value high (same as above) |
+| 48-55 | Enable -- command to enable or disable steering control. Zero means disable, non-zero means enable. |
+| 56-63 | Reserved, not being used. |
 
+## Steering Report
 
-# Brake Command
-**ID**: 0x060
+### ID: 0x65
 
-**Transmit Rate**: 20 ms
+### Transmit Rate: 20ms
 
-**Receive Timeout**: 100 ms
-
-
-* **bits 0-15** | Pressure Command
- 	* 0 = 0% 65535 = 100%
-* **bit 16** | Brake On
- 	* 0 = off, 1 = on
-* **bit 17-23** | Reserved
-* **bit 24** | Enabled
-* **bit 25** | Clear
-* **bit 26** | Ignore
-* **bit 27-31** | Reserved
-* **bit 32-39** | Reserved
-* **bit 40-47** | Reserved
-* **bit 48-55** | Reserved
-* **bit 56-63** | Count
-
-
-
-# Brake Report
-**ID**: 0x061
-**Receive Rate**: 50 ms
-
-**Receive Timeout**: 100 ms
+| Bits  | Value |
+| ----- | ----- |
+| 0-15  | OSCC Magic number Bits . |
+| 16-23 | Enabled -- reports if steering module is enabled (non-zero) or disabled (zero). Disabled state will ignore commands. |
+| 24-31 | Operator Override -- driver override state. If this value is zero, there has not been an override, if it is nonzero, an operator has physically overridden the system. |
+| 32-39 | DTCs -- bitfield of DTC's present in the module. Currently, this is used to report invalid sensor values, but can be extended to report other errors. |
+| 40-63 | Reserved and not being used. |
 
 
-* **bits 0-15** | Pedal Input
- 	* 0 = 0% 65535 = 100%
-* **bits 16-31** | Pedal Command
- 	* 0 = 0% 65535 = 100%
-* **bits 32-47** | Pedal Output
- 	* 0 = 0% 65535 = 100%
-* **bit 48** | Brake On Output
-* **bit 49** | Brake On Command
-* **bit 50** | Brake On Input
-* **bit 51** | Watchdog Brake
-* **bits 52-55** | Watchdog Source
-* **bit 56** | Enabled
-* **bit 57** | Override
-* **bit 58** | Driver Activity
-* **bit 59** | Watchdog Counter Fault State
-* **bit 60** | Channel 1 Fault State
-* **bit 61** | Channel 2 Fault State
-* **bit 62** | Brake Connector Fault State
-* **bit 63** | Connector Fault State
+## Throttle Command
+
+### ID: 0x62
+
+### Transmit Rate: again, this is controlled by the application sending commands.
+
+| Bits  | Value |
+| ----- | ----- |
+| 0-15  | OSCC Magic number Bits . |
+| 16-31 | Spoof value low -- in steps, to be written directly to the DAC. |
+| 32-47 | Spoof value high (same as above) |
+| 48-55 | Enable -- command to enable or disable throttle control. Zero means disable, non-zero means enable. |
+| 56-63 | Reserved, not being used. |
+
+## Throttle Report
+
+### ID: 0x63
+
+### Transmit Rate: 20ms
+
+| Bits  | Value |
+| ----- | ----- |
+| 0-15  | OSCC Magic number Bits . |
+| 16-23 | Enabled (0 or 1, see explanation above in Steering Report). |
+| 24-31 | Operator Override (0 or 1, see explanation above in Steering Report). |
+| 32-39 | DTCs (bitfield, see explanation above in steering report). |
+| 40-63 | Reserved and not being used. |
 
 
-# Throttle Command
-**ID**: 0x062
+## Fault Report
 
-**Transmit Rate**: 20 ms
+### ID: 0x99
 
-**Receive Timeout**:
+### Transmit Rate: as needed
 
+| Bits  | Value |
+| ----- | ----- |
+| 0-15  | OSCC Magic number Bits . |
+| 16-47 | Fault origin ID -- an enum with the ID of the sending module. Can be FAULT_ORIGIN_BRAKE, FAULT_ORIGIN_STEERING, or FAULT_ORIGIN_THROTTLE. |
+| 48-63 | Reserved and not being used. |
 
-* **bits 0-15** | Pedal Command
- 	* 0 = 0% 65535 = 100%
-* **bits 16-23** | Reserved
-* **bit 24** | Enabled
-* **bit 25** | Clear
-* **bit 26** | Ignore
-* **bit 27-31** | Reserved
-* **bit 32-39** | Reserved
-* **bit 40-47** | Reserved
-* **bit 55-48** | Reserved
-* **bit 56-63** | Count
+## Brake Command
 
+### ID: 0x60
 
-# Throttle Report
-**ID**: 0x063
+### Transmit Rate: defined by sending application.
 
-**Receive Rate**: 20 ms
+| Bits  | Value |
+| ----- | ----- |
+| 0-15  | OSCC Magic number Bits . |
+| 16-31 | Pedal command -- [65535 == 100%] |
+| 31-39 | Enable -- command to enable or disable brake control. Zero to disable, non-zero to enable. |
+| 40-63 | Reserved and not being used. |
 
-**Receive Timeout**:
+## Brake Report
 
+### ID: 0x61
 
-* **bits 0-15** | Pedal Input
- 	* 0 = 0% 65535 = 100%
-* **bits 16-31** | Pedal Command
- 	* 0 = 0% 65535 = 100%
-* **bits 32-47** | Pedal Output
- 	* 0 = 0% 65535 = 100%
-* **bit 48-51** | Reserved
-* **bits 52-55** | Watchdog Source
-* **bit 56** | Enabled
-* **bit 57** | Override
-* **bit 58** | Driver Activity
-* **bit 59** | Watchdog Counter Fault State
-* **bit 60** | Channel 1 Fault State
-* **bit 61** | Channel 2 Fault State
-* **bit 62** | Brake Connector Fault State
-* **bit 63** | Connector Fault State
+### Transmit Rate: 20ms
 
-
-# Steering Command
-**ID**: 0x064
-
-**Receive Rate**: 20 ms
-
-**Receive Timeout**: 150 ms
-
-
-* **bits 0-15** | Steering Wheel Angle Command
-	* 0 = 0% 65535 = 100%
-* **bit 16** | Enabled
-* **bit 17** | Clear
-* **bit 18** | Ignore
-* **bit 19-23** | Reserved
-* **bit 24-31** | Steering Wheel Max Velocity
- 	* 0 = No limit
- 	* Value 0x01 means 2 degrees/second.
- 	* Value 0xFA means 500 degrees/second. [2 degrees/second per bit]
-* **bit 32-47** | Torque
-* **bit 48-55** | Reserved
-* **bit 56-63** | Count
-
-
-# Steering Report
-**ID**: 0x065
-
-**Receive Rate**: 20 ms
-
-**Receive Timeout**: TODO
-
-
-* **bits 0-15** | Angle
- 	* 0 = 0% 65535 = 100%
-* **bits 16-31** | Angle Command
- 	* 0 = 0% 65535 = 100%
-* **bits 32-47** | Vehicle Speed
- 	* Vehicle speed. [0.01 kilometers/hour per bit]
-* **bit 48-55** | Torque
-* **bit 56** | Enabled
-* **bit 57** | Override
-* **bit 58** | Driver Activity
-* **bit 59** | Watchdog Counter Fault State
-* **bit 60** | Channel 1 Fault State
-* **bit 61** | Channel 2 Fault State
-* **bit 62** | Fault Calibration
-* **bit 63** | Connector Fault State
+| Bits  | Value |
+| ----- | ----- |
+| 0-15  | OSCC Magic number Bits . |
+| 16-23 | Enabled (0 or 1, see explanation above in Steering Report). |
+| 24-31 | Operator Override (0 or 1, see explanation above in Steering Report). |
+| 32-39 | DTCs (bitfield, see explanation above in steering report). |
+| 40-63 | Reserved and not being used. |
