@@ -21,9 +21,8 @@ PolySync is working on creating Arduino shields that provide all the function ne
 
 
 
-### - [[Overview|overview]]
-### - [[Steering|steering]]
-### - [[Throttle|throttle]]
-### - [[Brake|brake]]
-### - [[CAN Gateway & Control CAN|CAN-Gateway-&-Control-CAN]]
-### - [[Power Distribution|power-distribution]]
+### - [[Home|Home]]
+### - [[Introduction|Introduction]]
+### - [[API|API]]
+### - [[Hardware|Hardware]]
+### - [[Firmware|Firmware]]
