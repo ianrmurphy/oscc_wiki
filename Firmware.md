@@ -44,7 +44,7 @@ These modules are built from Arduinos and Arduino shields designed specifically 
 Once these modules have been installed in the vehicle and flashed with the firmware, the API can be used to
 receive reports from the car and send spoofed commands.
 
-### Pre-requisites
+### Prerequisites
 
 You must have Arduino Core and CMake (version 2.8 or greater) installed on
 your machine.
@@ -336,9 +336,3 @@ options that you can change that would normally be configured on the command lin
 with `-D` commands. When you're done, click `Configure` again and then click
 the `Generate` button. You can then close `cmake-gui` and run any `make` commands
 like you normally would.
-
-
-## [[Brake|Firmware-Brake]]
-## [[Steering|Firmware-Steering]]
-## [[Throttle|Firmware-Throttle]]
-## [[OBD Messages|Firmware-OBD]]

@@ -17,10 +17,3 @@ These systems all work together to provide full control of the vehicle. The imag
 
 Below is a more detailed schematic of the control system.
 ![Detailed](images/system/system_schematic.png)
-
-## [[CAN Gateway|Hardware-Gateway]]
-## [[Brake|Hardware-Brake]]
-## [[Steering|Hardware-Steering]]
-## [[Throttle|Hardware-Throttle]]
-## [[Power Distribution|Hardware-Power-Distribution]]
-## [[Clearing Faults|Hardware-Clearing-Faults]]
