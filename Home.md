@@ -19,10 +19,27 @@ A new network of controllers will be created that communicate via a CAN bus, cal
 
 PolySync is working on creating Arduino shields that provide all the function needed for interfacing with the steering, throttle, and brake system. Check back soon for schematics and board layouts!
 
+For information on properly starting up an OSCC vehicle please take a look at the [OSCC operation manual](images/OSCCOperationManual.pdf)
+
+Controlling a Kia Soul fully by wire requires the creation of three modules to interface with physical actuators, a CAN gateway module to translate Kia specific CAN messages onto a new **Control CAN bus**, and a power distribution system that has emergency stop capability. Each of these individual systems have their own page.
+
+- [[API|API]]
+- [[Hardware|Hardware]]
+- [[Firmware|Firmware]]
+
+These systems all work together to provide full control of the vehicle. The image below illustrates a high level overview of the systems needed to control a vehicle, as well as a network of sensors used for perception.
+
+![Overview](images/system/system_overview.png)
+
+
+
+
+Below is a more detailed schematic of the control system.
+![Detailed](images/system/system_schematic.png)
+
 
 
 ### - [[Home|Home]]
-### - [[Introduction|Introduction]]
 ### - [[API|API]]
 ### - [[Hardware|Hardware]]
 ### - [[Firmware|Firmware]]

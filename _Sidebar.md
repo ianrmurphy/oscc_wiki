@@ -1,5 +1,4 @@
 * [[Home|Home]]
-* [[Introduction|Introduction]]
 * [[API|API]]
 * [[Hardware|Hardware]]
 * [[Firmware|Firmware]]
