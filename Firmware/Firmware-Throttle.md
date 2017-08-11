@@ -2,9 +2,21 @@
 
 The throttle firmware is responsible for reading values from the accelerator position sensor, sending reports on its state, and receiving throttle commands and fault reports from the control CAN. When the throttle firmware receives a throttle command message, it will then output the commanded high and low spoof signals onto its connection to the ECU, sending it throttle requests. Receiving a fault report will cause the throttle module to disable.
 
-## System behavior and fault states
+## Faults
 
-The firmware can fault if it is in the enabled state and hasn't received any control commands in a while. It can also fault if it reads invalid values from its connected sensor consecutive times, as this can be a sign that it has become disconnected. When the throttle module faults, it will disable and send out a fault report to the control CAN bus, letting the other modules know that they should also disable.
+There are three possible fault states:
+
+* Sensor disconnect
+    * The firmware will periodically check the sensors to ensure none of them read a value of zero (an indication that they have become disconnected).
+    * If a sensor is detected to be disconnected, control will be disabled and a fault report will be published
+* Command timeout
+    * The firmware will monitor the time between receiving commands and ensure there is a steady connection to a higher level application
+    * If it is determined that commands are no longer being received, control will be disabled and a fault report will be published
+* Operator override
+    * The firmware will monitor for a manual actuation of the accelerator pedal by a human operator in the event of an emergency override of OSCC control
+    * If an operator override is detected, control will be disabled and a fault report will be published
+
+All modules listen for the fault report message and disable themselves if learning of a fault in a different module.
 
 ## CAN messages we send and receive
 
