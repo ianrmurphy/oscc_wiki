@@ -18,9 +18,12 @@ There are three possible fault states:
 
 All modules listen for the fault report message and disable themselves if learning of a fault in a different module.
 
-## CAN messages we send and receive
+## Commands and Reports
 
-Receives steering command messages, fault messages. Sends steering reports with state information about module, sends fault reports if module detects a fault.
+* Receives steering commands from the API
+* Receives fault reports from other modules
+* Sends steering reports with current state information
+* Sends fault reports on fault event
 
 ## CAN message specifications
 
@@ -28,7 +31,7 @@ Receives steering command messages, fault messages. Sends steering reports with 
 
 #### ID: 0x64
 
-#### Transmit Rate: controlled via application sending speed. We control it through joystick commander.
+#### Transmit Rate: defined by sending application.
 
 | Bits  | Value |
 | ----- | ----- |
@@ -56,7 +59,7 @@ Receives steering command messages, fault messages. Sends steering reports with 
 
 #### ID: 0x99
 
-#### Transmit Rate: as needed
+#### Transmit Rate: once, on fault event
 
 | Bits  | Value |
 | ----- | ----- |

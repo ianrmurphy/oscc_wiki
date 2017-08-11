@@ -18,9 +18,12 @@ There are three possible fault states:
 
 All modules listen for the fault report message and disable themselves if learning of a fault in a different module.
 
-## CAN messages we send and receive
+## Commands and Reports
 
-Receives throttle command messages, fault messages. Sends throttle reports with state information about module, sends fault reports if module detects a fault.
+* Receives throttle commands from the API
+* Receives fault reports from other modules
+* Sends throttle reports with current state information
+* Sends fault reports on fault event
 
 ## CAN message specifications
 
@@ -28,7 +31,7 @@ Receives throttle command messages, fault messages. Sends throttle reports with 
 
 #### ID: 0x62
 
-#### Transmit Rate: again, this is controlled by the application sending commands.
+#### Transmit Rate: defined by sending application.
 
 | Bits  | Value |
 | ----- | ----- |

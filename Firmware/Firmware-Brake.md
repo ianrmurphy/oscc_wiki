@@ -22,9 +22,12 @@ There are four possible fault states:
 
 All modules listen for the fault report message and disable themselves if learning of a fault in a different module.
 
-## CAN messages we send and receive
+## Commands and Reports
 
-Receives brake command messages, fault messages. Sends brake reports with state information about module, sends fault reports if module detects a fault.
+* Receives brake commands from the API
+* Receives fault reports from other modules
+* Sends brake reports with current state information
+* Sends fault reports on fault event
 
 ## CAN message specifications
 
@@ -59,7 +62,7 @@ Receives brake command messages, fault messages. Sends brake reports with state 
 
 #### ID: 0x99
 
-#### Transmit Rate: as needed
+#### Transmit Rate: once, on fault event
 
 | Bits  | Value |
 | ----- | ----- |
