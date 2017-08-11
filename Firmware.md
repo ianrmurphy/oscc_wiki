@@ -7,6 +7,12 @@ There are four hardware modules, each with its own firmware:
 * Steering (Arduino Uno + OSCC Sensor Interface Board)
 * Throttle (Arduino Uno + OSCC Sensor Interface Board)
 
+## [Compatibility](#1-firmware_compatibility)
+## [Building and Uploading Firmware](#1-firmware_building-and-uploading-firmware)
+## [Monitoring Arduino Modules](#1-firmware_monitoring-arduino-modules)
+## [Tests](#1-firmware_tests)
+## [Easier CMake Configuration](#1-firmware_easier-cmake-configuration)
+
 ## Compatibility
 
 Your hardware version is printed on the front of the OSCC shield.
@@ -131,7 +137,7 @@ make all-upload
 Sometimes it takes a little while for the Arduino to initialize once connected, so if there is an
 error thrown initially, wait a little bit and then retry the command.
 
-### Monitoring Arduino Modules
+## Monitoring Arduino Modules
 
 It is sometimes useful to monitor individual Arduino modules to check for proper operation and to
 debug. If the modules have been built with the flag `-DCMAKE_BUILD_TYPE=Debug`, their debug
@@ -174,7 +180,7 @@ Be aware that using serial printing can affect the timing of the firmware. You m
 strange behavior while printing that does not occur otherwise.
 
 
-### Tests
+## Tests
 
 There are two types of tests available: unit and property-based.
 
@@ -192,7 +198,7 @@ cd build
 cmake .. -DTESTS=ON -DCMAKE_BUILD_TYPE=Release -DKIA_SOUL=ON
 ```
 
-#### Unit Tests
+### Unit Tests
 
 Each module has a suite of unit tests that use **Cucumber** with **Cgreen**. There are prebuilt
 64-bit Linux versions in `firmware/common/testing/framework`. Boost is required for Cucumber-CPP
@@ -295,7 +301,7 @@ running 0 tests
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured
 ```
 
-#### Run All Tests
+### Run All Tests
 
 Finally, you can run all available tests:
 
@@ -304,7 +310,7 @@ make run-all-tests
 ```
 
 
-### Easier CMake Configuration
+## Easier CMake Configuration
 
 If you have a lot of `-D` commands to pass to CMake (e.g., configuring the serial
 port and baud rates of all of the modules), you can instead configure with a GUI
