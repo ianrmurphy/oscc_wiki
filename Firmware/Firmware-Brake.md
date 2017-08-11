@@ -29,20 +29,18 @@ All modules listen for the fault report message and disable themselves if learni
 * Sends brake reports with current state information
 * Sends fault reports on fault event
 
-## CAN message specifications
-
 ### Brake Command
 
 #### ID: 0x60
 
 #### Transmit Rate: defined by sending application.
 
-| Bits  | Value |
-| ----- | ----- |
-|  0-15 | OSCC Magic number |
-| 16-31 | Pedal command -- [65535 == 100%] |
-| 31-39 | Enable -- command to enable or disable brake control. Zero to disable, non-zero to enable. |
-| 40-63 | Reserved and not being used. |
+| Type     | Size (bytes) | Description |
+| -------- | ------------ | ----------- |
+| uint8_t  | 2            | **OSCC Magic Number** <br> Identifies CAN frame as from OSCC. <br> Byte 0 should be \ref 0x05. <br> Byte 1 should be \ref 0x55. |
+| uint16_t | 2            | **Pedal Value** <br> [65535 == 100%] |
+| uint8_t  | 1            | **Enable** <br> Command to enable or disable brake control. <br> Zero to disable. <br> Non-zero to enable. |
+| uint8_t  | 3            | **Reserved** |
 
 ### Brake Report
 
@@ -50,13 +48,13 @@ All modules listen for the fault report message and disable themselves if learni
 
 #### Transmit Rate: 20ms
 
-| Bits  | Value |
-| ----- | ----- |
-|  0-15 | OSCC Magic number |
-| 16-23 | Enabled (0 or 1, see explanation above in Steering Report). |
-| 24-31 | Operator Override (0 or 1, see explanation above in Steering Report). |
-| 32-39 | DTCs (bitfield, see explanation above in steering report). |
-| 40-63 | Reserved and not being used. |
+| Type     | Size (bytes) | Description |
+| -----    | ----         | ----- |
+| uint8_t  | 2            | **OSCC Magic Number** <br> Identifies CAN frame as from OSCC. <br> Byte 0 should be \ref 0x05. <br> Byte 1 should be \ref 0x55. |
+| uint8_t  | 1            | **Enabled Status** <br> Zero value means disabled (commands are ignored). <br> Non-zero value means enabled (commands are sent to vehicle). |
+| uint8_t  | 1            | **Operator Override** <br> Zero value means there has been no operator override. <br> Non-zero value means an operator has physically overridden the system. |
+| uint8_t  | 1            | **DTCs** <br> Bitfield of DTCs present in the module. |
+| uint8_t  | 3            | **Reserved** |
 
 ### Fault Report
 
@@ -64,21 +62,21 @@ All modules listen for the fault report message and disable themselves if learni
 
 #### Transmit Rate: once, on fault event
 
-| Bits  | Value |
-| ----- | ----- |
-|  0-15 | OSCC Magic number |
-| 16-47 | Fault origin ID -- enum equaling FAULT_ORIGIN_BRAKE |
-| 48-63 | Reserved and not being used. |
+| Type     | Size (bytes) | Description |
+| -------- | ------------ | ----------- |
+| uint8_t  | 2            | **OSCC Magic Number** <br> Identifies CAN frame as from OSCC. <br> Byte 0 should be \ref 0x05. <br> Byte 1 should be \ref 0x55. |
+| uint32_t | 4            | **Fault Origin ID** <br> Enum value equaling FAULT_ORIGIN_BRAKE. |
+| uint8_t  | 2            | **Reserved** |
 
-## Error codes
+## DTCs
 
-DTC explanation.
+The DTC field is an 8-bit bitfield - when a DTC's bit position is a 1, that DTC is active.
 
-## Firmware Use
+| Bit Position | DTC Description |
+| ------------ | --------------- |
+| 0            | **Invalid Sensor Value** <br> The firmware has detected that one of the sensors has become disconnected. |
 
-Flash onto hardware. Shouldn't require any modification, since it's mainly used to pass information between vehicle and API.
-
-## Build instructions
+## Build Instructions
 
 Follow the [[general build instructions|Firmware#1-firmware_building-and-uploading-firmware]] and then run:
 

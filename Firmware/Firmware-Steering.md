@@ -25,21 +25,19 @@ All modules listen for the fault report message and disable themselves if learni
 * Sends steering reports with current state information
 * Sends fault reports on fault event
 
-## CAN message specifications
-
 ### Steering Command
 
 #### ID: 0x64
 
 #### Transmit Rate: defined by sending application.
 
-| Bits  | Value |
-| ----- | ----- |
-|  0-15 | OSCC Magic number. We use these to distinguish our messages from the OBD-II messages sent by the vehicle. |
-| 16-31 | Spoof value low -- in steps, to be written directly to the DAC. |
-| 32-47 | Spoof value high (same as above) |
-| 48-55 | Enable -- command to enable or disable steering control. Zero means disable, non-zero means enable. |
-| 56-63 | Reserved, not being used. |
+| Type     | Size (bytes) | Description |
+| -------- | ------------ | ----------- |
+| uint8_t  | 2            | **OSCC Magic Number** <br> Identifies CAN frame as from OSCC. <br> Byte 0 should be \ref 0x05. <br> Byte 1 should be \ref 0x55. |
+| uint16_t | 2            | **Spoof Value Low** <br> Value to be sent on the low spoof signal to the DAC. <br> Voltage converted to a 12-bit step value. |
+| uint16_t | 2            | **Spoof Value High** <br> Value to be sent on the high spoof signal to the DAC. <br> Voltage converted to a 12-bit step value. |
+| uint8_t  | 1            | **Enable** <br> Command to enable or disable steering control. <br> Zero to disable. <br> Non-zero to enable. |
+| uint8_t  | 1            | **Reserved** |
 
 ### Steering Report
 
@@ -47,13 +45,13 @@ All modules listen for the fault report message and disable themselves if learni
 
 #### Transmit Rate: 20ms
 
-| Bits  | Value |
-| ----- | ----- |
-|  0-15 | OSCC Magic number |
-| 16-23 | Enabled -- reports if steering module is enabled (non-zero) or disabled (zero). __*__ |
-| 24-31 | Operator Override -- driver override state. __**__ |
-| 32-39 | DTCs -- bitfield of DTC's present in the module. __***__ |
-| 40-63 | Reserved and not being used. |
+| Type     | Size (bytes) | Description |
+| -----    | ----         | ----- |
+| uint8_t  | 2            | **OSCC Magic Number** <br> Identifies CAN frame as from OSCC. <br> Byte 0 should be \ref 0x05. <br> Byte 1 should be \ref 0x55. |
+| uint8_t  | 1            | **Enabled Status** <br> Zero value means disabled (commands are ignored). <br> Non-zero value means enabled (commands are sent to vehicle). |
+| uint8_t  | 1            | **Operator Override** <br> Zero value means there has been no operator override. <br> Non-zero value means an operator has physically overridden the system. |
+| uint8_t  | 1            | **DTCs** <br> Bitfield of DTCs present in the module. |
+| uint8_t  | 3            | **Reserved** |
 
 ### Fault Report
 
@@ -61,27 +59,19 @@ All modules listen for the fault report message and disable themselves if learni
 
 #### Transmit Rate: once, on fault event
 
-| Bits  | Value |
-| ----- | ----- |
-|  0-15 | OSCC Magic number |
-| 16-47 | Fault origin ID -- enum equaling FAULT_ORIGIN_STEERING |
-| 48-63 | Reserved and not being used. |
+| Type     | Size (bytes) | Description |
+| -------- | ------------ | ----------- |
+| uint8_t  | 2            | **OSCC Magic Number** <br> Identifies CAN frame as from OSCC. <br> Byte 0 should be \ref 0x05. <br> Byte 1 should be \ref 0x55. |
+| uint32_t | 4            | **Fault Origin ID** <br> Enum value equaling FAULT_ORIGIN_STEERING. |
+| uint8_t  | 2            | **Reserved**
 
-__*__ *Disabled state will ignore commands.*
+## DTCs
 
-__**__ *If this value is zero, there has not been an override, if it is nonzero, an operator has physically overridden the system.*
+| Bit Position | DTC Description |
+| ------------ | --------------- |
+| 0            | **Invalid Sensor Value** <br> The firmware has detected that one of the sensors has become disconnected. |
 
-__***__ *Currently, this is used to report invalid sensor values, but can be extended to report other errors.*
-
-## Error codes
-
-DTC explanation.
-
-## Firmware Use
-
-Flash onto hardware. Shouldn't require any modification, since it's mainly used to pass information between vehicle and API.
-
-## Build instructions
+## Build Instructions
 
 Follow the [[general build instructions|Firmware#1-firmware_building-and-uploading-firmware]] and then run:
 
