@@ -62,4 +62,15 @@ Flash onto hardware. Shouldn't require any modification, since it's mainly used 
 
 ## Build instructions
 
-(on README, currently)
+Follow the [[general build instructions|Firmware#1-firmware_building-and-uploading-firmware]] and then run:
+
+```
+make throttle
+```
+
+To upload to the Arduino:
+
+```
+make throttle-upload
+```
+
