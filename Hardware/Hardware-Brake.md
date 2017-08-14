@@ -2,11 +2,11 @@
 
 As braking in the Kia Soul is a traditional mechanical system, the factory standard Soul has no ability to control braking electronically. There are a number of models of vehicles with electronically controlled brake systems, notably the 2004-2009 Prius. This model Prius uses an electronically controlled actuator with no microprocessor, it is controlled from the Prius ECU. There are 7 pressure sensors on the device, 10 proportional solenoids, an accumulator, a pump, diagnostics components, and a pressure relief valve. This unit can be sourced from auto salvage yards and installed into the existing Kia brake system without adversely effecting the stock brake system and adding by-wire control. When sourcing these units be sure to request the pigtail adapter for the actuator as well.
 
-![Prius Brake Setup](images/brake_module/brake_actuator.png)
+![Prius Brake Setup](/images/brake_module/brake_actuator.png)
 
 The image below illustrates the brake actuator as it is installed in a Prius. Notice you can see which solenoids are normally open and which are normally closed.
 
-![Prius Brake Setup](images/brake_module/brake_stock_diagram.png)
+![Prius Brake Setup](/images/brake_module/brake_stock_diagram.png)
 
 # Control
 
@@ -69,10 +69,10 @@ The actuator is mounted in the engine compartment of the vehicle. The brake line
 The images below show the brake actuator as it is installed in a Kia Soul. You can see the enclosure for the micro controller as well as the added brake fluid reservoir.
 
 
-![New Brake Setup](images/brake_module/brake_diagram.png)
+![New Brake Setup](/images/brake_module/brake_diagram.png)
 
 
-![Installed Actuator](images/brake_module/brake_actuator_installed.png)
+![Installed Actuator](/images/brake_module/brake_actuator_installed.png)
 
 1. A brake fluid reservoir, connected with a T into the existing brake reservoir hose, will need to be mounted above the intake of the brake actuator unless the brake actuator can be installed below the level of brake fluid in the existing reservoir. It might be possible to mount the brake actuator below the stock brake fluid reservoir by moving the battery to the rear of the car and mount the brake actuator in the place of the battery.
 2. The brake module is mounted in the engine bay next to the brake actuator, close enough to connect the pigtail connector to the brake module.
@@ -83,7 +83,7 @@ The images below show the brake actuator as it is installed in a Kia Soul. You c
 
 # Resources & Further Reading
 
-* [Actuator Pinout](images/brake_module/brake_actuator_pinout.png)
+* [Actuator Pinout](/images/brake_module/brake_actuator_pinout.png)
 * [Actuator Pressure Sensor Response](docs/brake_module/pressure_sensor_output.ods)
 
 

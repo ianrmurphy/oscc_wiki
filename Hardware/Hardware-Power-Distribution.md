@@ -5,7 +5,7 @@ All four of the modules that comprise the control system of the Kia need to be p
 An emergency stop button is placed in the car along with a rocker switch that switches power for the whole system. A relay is placed in the engine compartment along with fuses for the system. Power is run for the brake unit under the hood and the steering, throttle, and CAN module in the cabin. It is also likely that sensors and computers will be added, amping up the power requirements of the system.
 
 Below is a diagram for a simple power distribution that meets the requirements discussed above.
-![Power Distribution](images/system/power_distribution.png)
+![Power Distribution](/images/system/power_distribution.png)
 
 # Hardware
 
