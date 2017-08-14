@@ -1,17 +1,21 @@
 # Background
 
-The Kia Soul has a handful of different CAN buses on board. The OBD-II CAN network has vehicle state information such as steering wheel angle, wheel speeds, and brake pressure. This information needs to be available on the Control CAN bus because it is used in low level PID control for steering angle and can be useful in high level control, such as path planning.
+The Kia Soul has a handful of different CAN buses on board. The OBD-II CAN network has vehicle state information such as steering wheel angle, wheel speeds, and brake pressure. This information is useful for algorithms like PID control and path planning.
 
-Additionally, it’s not a great idea to simply extend the OBD-II bus by adding new control modules onto the bus. This is because the new control system will be publishing CAN messages using CAN frames that may interfere with the existing C-CAN protocol. Because of this, it is necessary to bridge OBD-II CAN messages to the new Control CAN bus.
+Rather than sharing the vehicle's OBD-II bus and possibly interfering with the vehicle's native messages, OSCC has its own CAN bus called Control CAN where commands and reports are sent and received.
 
-
-The Control CAN bus is the CAN bus that is added to the vehicle in order to link all the new control modules, as well as send control commands to those modules.
+The CAN Gateway acts as a bridge between the vehicle's native OBD-II bus and Control CAN, forwarding relevant OBD-II messages from the OBD-II bus to the Control CAN bus, which can be consumed by applications subscribing to the OBD messages.
 
 The image below demonstrates how the CAN gateway sits on both the Control CAN bus and the OBD-II CAN bus, but only publishes CAN messages in one direction: towards the Control CAN bus from the OBD-II CAN bus.
 
-![CAN Gateway](images/can/can_gateway_diagram.png)
+![CAN Gateway](/images/can/can_gateway_diagram.png)
 
-A [[CAN specification|CAN-specification]] exists for the Control CAN bus.
+There is a CAN specification in each module's firmware page:
+
+* [[Brake|Firmware-Brake]]
+* [[Steering|Firmware-Steering]]
+* [[Throttle|Firmware-Throttle]]
+* [[OBD-II|Firmware-OBD]]
 
 # Hardware
 ### Parts
@@ -43,5 +47,4 @@ The CAN Gateway module is a simple install. One of the Arduino CAN shields needs
 ### Resources & Further Reading
 
 * [[Seeedstudio CAN Shield 1.2 Documentation|http://wiki.seeed.cc/CAN-BUS_Shield_V1.2/]]
-* [[CAN Specification|CAN-specification]]
 * [[Making your own Twisted Pair|https://www.electronics-notes.com/articles/constructional_techniques/hints_and_tips/how-to-make-twisted-pair-wire.php]]
