@@ -2,10 +2,10 @@
 
 There are four hardware modules, each with its own firmware:
 
-* CAN Gateway (Arduino Uno + Two [[Seeed Studio CAN Shields|https://www.seeedstudio.com/CAN-BUS-Shield-V1.2-p-2256.html]])
-* Brake (Arduino Mega + OSCC Actuator Control Board)
-* Steering (Arduino Uno + OSCC Sensor Interface Board)
-* Throttle (Arduino Uno + OSCC Sensor Interface Board)
+* [CAN Gateway](Hardware-Gateway) (Arduino Uno + Two [[Seeed Studio CAN Shields|https://www.seeedstudio.com/CAN-BUS-Shield-V1.2-p-2256.html]])
+* [Brake](Hardware-Brake) (Arduino Mega + OSCC Actuator Control Board)
+* [Steering](Hardware-Steering) (Arduino Uno + OSCC Sensor Interface Board)
+* [Throttle](Hardware-Throttle) (Arduino Uno + OSCC Sensor Interface Board)
 
 ## [Compatibility](#1-firmware_compatibility)
 ## [Building and Uploading Firmware](#1-firmware_building-and-uploading-firmware)
@@ -32,7 +32,7 @@ Your hardware version is printed on the front of the OSCC shield.
 #### Brake (Actuator Control Board)
 | Board Version | Firmware Version |
 | ------------- | ---------------- |
-| 1.0.0 - 1.0.1 | >= 1.0.1 __*__       |
+| 1.0.0 - 1.0.1 | >= 1.0.1 __*__   |
 | >= 1.0.0      | >= 1.0.0         |
 
 __*__ *Later versions of the actuator control board utilize new pins to perform additional safety checks on startup. To use the new firmware on older models, please see additional instructions in the [build](#startup-test) section.*
