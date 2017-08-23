@@ -9,7 +9,7 @@ OSCC's API is the entry point for your application's communication with the vari
 * enabling and disabling the system
 
 The API uses a callback-based approach to provide asynchronous, interrupt-driven I/O, enabling you to decide how to handle new information upon receiving reports. Using OSCC through the API also allows you to send commands to the vehicle while still ensuring that safe values are being calculated before being written to the various vehicle ECUs.
-Working with the API is the safest and most modular way of using OSCC in your own software.
+Working with the API is the **safest and most modular way** of using OSCC in your own software.
 
 ## Function Overview
 
@@ -39,7 +39,7 @@ oscc_result_t publish_steering_torque( double normalized_torque );
 oscc_result_t publish_throttle_position( double normalized_position );
 ```
 
-These commands will forward a double value, between [0.0, 1.0] for brake and throttle and [-1.0, 1.0] for steering, to the specified firmware module. The API will then use these values to calculate the voltages needed to send to the vehicle's ECUs and achieve the desired new state. The specifics of how these spoof values are calculated can be found in macros defined in vehicle-specific header files, such as `vehicles/kia_soul.h`.
+These commands will forward a double value, between [0.0, 1.0] for brake and throttle and [-1.0, 1.0] for steering, to the specified firmware module. The API will then use these values to calculate the voltages needed to send to the vehicle's ECUs and achieve the desired new state. The specifics of how these voltage values are calculated can be found in macros defined in vehicle-specific header files, such as `vehicles/kia_soul.h`.
 The API also contains safety checks to ensure no invalid values can be written onto the hardware.
 
 **Register callback function to be called when OBD message received from vehicle.**
