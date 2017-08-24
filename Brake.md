@@ -26,10 +26,6 @@ Using an Arduino, a PID controller is built to manage the brake cylinder's press
 
 There is small "stop light switch" on the brake pedal. This switch controls the brake lights and communicates to the ECU that the brake pedal has been depressed. If the Kia Soul brakes without pressure being increased at the wheels and the brake pedal has not been depressed, the car throws a fault. Because of this it is necessary to emulate the stop light switch with our control unit.
 
-# Hardware
-
-The new PolySync brake shield is undergoing testing and validation. Board designs and schematics will be available as soon at the boards are thoroughly proven.
-
 ### Parts
 
 | Part          | Price  |
@@ -46,40 +42,6 @@ The new PolySync brake shield is undergoing testing and validation. Board design
 | [[3/8" barbed brass tee|http://www.jegs.com/i/Dorman-Products/326/788-031/10002/-1]]| $3.68 ea. |
 | [[Arduino Mega|https://www.arduino.cc/en/Main/arduinoBoardMega]] | $24.95 |
 | [[PolySync Brake Shield R0|https://www.oscc.io]]      | TBD |
-
-
-
-### Assembly
-
-The brake actuator pigtail must be wired to the control board. There are 38 wires on this connector and it helps to identify each one. The documents linked at the bottom of the page can help identify the wires. It is important to note that 21 of the wires are used and the rest are unused. You will also need to add a 4 pin connector to connect to the interrupt wires, which will be spliced into the stop light switch harness.
-
-The actuator wiring pigtail has many leads and can be confusing at first glance. Use the pinout diagram linked at the bottom of the page to identify every lead on the pigtail. While some wires colors are used more than once, you can use the groups of wires or the pin numbers to deduce which lead is which.
-
-1. Print [[the enclosure|https://github.com/PolySync/OSCC/tree/master/3d_models/brake_enclosure]] and enclosure lid.
-2. Screw the Arduino Uno to the enclosure.
-3. Press the actuator control board onto the Arduino.
-4. Lengthen the leads on the pigtail if necessary.
-5. Feed the wires from the pigtail through the enclosure and attach them to the board using the screw terminals.
-6. Run four wires through the enclosure and attach them to stop light switch screw terminals.
-
-### Install
-
-The actuator is mounted in the engine compartment of the vehicle. The brake lines from the master cylinder are routed to the two inlets on the brake actuator. Two of the outlets (rear left and rear right) on the actuator are capped off and the two remaining outlets (front left and front right) are routed to the two inlets on the Kia ABS unit.
-
-The images below show the brake actuator as it is installed in a Kia Soul. You can see the enclosure for the micro controller as well as the added brake fluid reservoir.
-
-
-![New Brake Setup](images/brake_module/brake_diagram.png)
-
-
-![Installed Actuator](images/brake_module/brake_actuator_installed.png)
-
-1. A brake fluid reservoir, connected with a T into the existing brake reservoir hose, will need to be mounted above the intake of the brake actuator unless the brake actuator can be installed below the level of brake fluid in the existing reservoir. It might be possible to mount the brake actuator below the stock brake fluid reservoir by moving the battery to the rear of the car and mount the brake actuator in the place of the battery.
-2. The brake module is mounted in the engine bay next to the brake actuator, close enough to connect the pigtail connector to the brake module.
-3. The wiring harness for the stop light switch is spliced into. Run wires from the splice through the firewall and up to the brake module and add a 4 pin connector.
-4. The power for the unit is connected to the emergency stoppable power system.
-5. The CAN shield is wired to the Control CAN bus.
-6. The brakes will need to be bled after the actuator is installed. Luckily, the actuator can supply the pressure needed to bleed the brake system. Connect a computer to the control module via a USB cable and issue a command to increase the pressure. Then bleed the brakes in a pattern specified by the vehicle manufacturer. Add additional brake fluid if necessary.
 
 # Resources & Further Reading
 

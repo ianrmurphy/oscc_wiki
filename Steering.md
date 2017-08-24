@@ -9,10 +9,7 @@ Below is a simple wiring diagram showing the connection between the the EPAS mic
 ## Control
 
 
-The EPAS motor can be controlled by removing the torque sensor input to the EPAS microprocessor and injecting spoofed torques. However, because the microprocessor uses the feedback from the torque sensor for its internal control loop, a new control loop must be created. This control loop will accept steering angle as its input. Steering angle data is available on the [[private Kia CAN bus|CAN-Gateway-&-Control-CAN]].
-
-The image below shows a high level system of control after we create a system for spoofing torques.
-![PID](images/steering_module/steering_pid.png)
+The EPAS motor can be controlled by removing the torque sensor input to the EPAS microprocessor and injecting spoofed torques. 
 
 The Kia ECU implements fault detection on the torque sensor by detecting discontinuities in the analog signals coming from the sensors. If any discontinuities appear the car will go into a fault state, with the symptom of disabling the power steering. To overcome this, the new torque spoofing microprocessor will interpolate between the torque sensor values and the spoofed values before sensing spoofed signals.
 

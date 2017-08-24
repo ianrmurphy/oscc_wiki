@@ -1,6 +1,5 @@
 * [[Home|Home]]
 * [[Overview|Overview]]
-  * [[Power Distribution|Power-Distribution]]
   * [[CAN|CAN-Gateway-&-Control-CAN]]
   * [[Steering|Steering]]
   * [[Throttle|Throttle]]
