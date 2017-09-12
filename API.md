@@ -13,25 +13,29 @@ Working with the API is the **safest and most modular way** of using OSCC in you
 
 ## Function Overview
 
-**Use provided CAN channel to open and close communications to CAN bus connected to the OSCC modules.**
+**Open and close CAN channel to OSCC Control CAN.**
 
 ```c
 oscc_result_t oscc_open( uint channel );
-oscc_result_t oscc_close( uint );
+oscc_result_t oscc_close( uint channel );
 ```
 
-These methods are the start and end points of using the OSCC API in your application, and must be called to facilitate communication with the firmware modules. `oscc_open` will open a socket connection on the specified CAN channel, and when you are ready to terminate your application, you can close the socket by calling `oscc_close`.
+These methods are the start and end points of using the OSCC API in your application. ```oscc_open``` will open a socket connection
+on the specified CAN channel, enabling it to quickly receive reports from and send commands to the firmware modules.
+When you are ready to terminate your application, ```oscc_close``` can terminate the connection.
 
-**Send enable or disable commands to all OSCC modules.**
+**Enable and disable all OSCC modules.**
 
 ```c
 oscc_result_t oscc_enable( void );
 oscc_result_t oscc_disable( void );
 ```
 
-After you have initialized your CAN connection to the firmware modules, these methods can be used to enable or disable the system. This allows your application to choose when to enable sending commands to the firmware. Although you can only send commands when the system is enabled, you can receive reports at any time.
+After you have initialized your CAN connection to the firmware modules, these methods can be used to enable or disable the system. This
+allows your application to choose when to enable sending commands to the firmware. Although you can only send commands when the system is
+enabled, you can receive reports at any time.
 
-**Publish message with requested normalized value to the corresponding module.**
+**Publish control command to the corresponding module.**
 
 ```c
 oscc_result_t publish_brake_position( double normalized_position );
@@ -39,13 +43,14 @@ oscc_result_t publish_steering_torque( double normalized_torque );
 oscc_result_t publish_throttle_position( double normalized_position );
 ```
 
-These commands will forward a double value, between [0.0, 1.0] for brake and throttle and [-1.0, 1.0] for steering, to the specified firmware module. The API will then use these values to calculate the voltages needed to send to the vehicle's ECUs and achieve the desired new state. The specifics of how these voltage values are calculated can be found in macros defined in vehicle-specific header files, such as `vehicles/kia_soul.h`.
-The API also contains safety checks to ensure no invalid values can be written onto the hardware.
+These commands will forward a double value, *[0.0, 1.0]*, to the specified firmware module. The API will construct the appropriate values
+to send spoof commands into the vehicle ECU's to achieve the desired state. The API also contains safety checks to ensure no invalid values
+can be written onto the hardware.
 
-**Register callback function to be called when OBD message received from vehicle.**
+**Register callback function to handle OSCC report and OBD messages.**
 
 ```c
-oscc_result_t subscribe_to_brake_reports( void(*callback)(oscc_brake_report_s *report)  );
+oscc_result_t subscribe_to_brake_reports( void(*callback)(oscc_brake_report_s *report) );
 oscc_result_t subscribe_to_steering_reports( void(*callback)(oscc_steering_report_s *report) );
 oscc_result_t subscribe_to_throttle_reports( void(*callback)(oscc_throttle_report_s *report) );
 oscc_result_t subscribe_to_fault_reports( void(*callback)(oscc_fault_report_s *report) );
@@ -53,10 +58,11 @@ oscc_result_t subscribe_to_obd_messages( void(*callback)(struct can_frame *frame
 ```
 
 In order to receive reports from the modules, your application will need to register a callback handler with the OSCC API.
-When the appropriate report for your callback function is received from the API's socket connection, it will then forward it to your software.
+When the appropriate report for your callback function is received from the API's socket connection, it will then forward the
+report to your software.
 
 In addition to OSCC specific reports, it will also forward any non-OSCC reports to any callback function registered with
-`subscribe_to_obd_messages`. This can be used to view CAN frames received from the vehicle's OBD-II CAN channel. If you know
+```subscribe_to_obd_messages```. This can be used to view CAN frames received from the vehicle's OBD-II CAN channel. If you know
 the corresponding CAN frame's id, you can parse reports sent from the car. Currently, we forward the following OBD messages:
 
 * steering wheel angle

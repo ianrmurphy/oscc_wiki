@@ -13,29 +13,32 @@ There are four hardware modules, each with its own firmware:
 ## [Tests](#1-firmware_tests)
 ## [Easier CMake Configuration](#1-firmware_easier-cmake-configuration)
 
-## Compatibility
+# Versions
 
-Your hardware version is printed on the front of the OSCC shield.
+New versions of the API and the firmware are released periodically as new features are added and bugs are
+fixed. **It is of vital importance that you update whenever there is a new version so that you can be certain
+you are not using a version with known safety issues.**
 
-### Kia Soul (2014-2017)
+There are four versions to be aware of:
 
-#### Steering (Sensor Interface Board)
-| Board Version | Firmware Version |
-| ------------- | ---------------- |
-| >= 1.0.0      | >= 1.0.0         |
+* **Sensor Interface Board (throttle and steering):** the version is printed on the front of the shield
 
-#### Throttle (Sensor Interface Board)
-| Board Version | Firmware Version |
-| ------------- | ---------------- |
-| >= 1.0.0      | >= 1.0.0         |
+* **Vehicle Control Module (EV brakes):** the version is printed on the front of the shield
 
-#### Brake (Actuator Control Board)
-| Board Version | Firmware Version |
-| ------------- | ---------------- |
-| 1.0.0 - 1.0.1 | >= 1.0.1 __*__   |
-| >= 1.0.0      | >= 1.0.0         |
+* **Actuator Control Board (petrol brakes):** the version is printed on the front of the shield
 
-__*__ *Later versions of the actuator control board utilize new pins to perform additional safety checks on startup. To use the new firmware on older models, please see additional instructions in the [build](#startup-test) section.*
+* **API and Firmware:** a single version is shared by both and listed in the [Releases section](https://github.com/PolySync/oscc/releases) of the repository.
+
+The following table can be used to ensure that you use the appropriate firmware version with your boards:
+
+|                        | Board Version | Firmware Version |
+| ---------------------- | ------------- | ---------------- |
+| Sensor Interface       | >= 1.0.0      | >= 1.0.0         |
+| Vehicle Control        | 0.1.0         | >= 1.1.0         |
+| Actuator Control       | >= 1.2.0      | >= 1.0.0         |
+|                        | < 1.2.0 __*__ | >= 1.0.1         |
+
+__*__ *Later versions of the Actuator Control Board utilize new pins to perform additional safety checks on startup. To use the new firmware on older boards, please see additional instructions in the [build](#brake-startup-test) section.*
 
 ## Building and Uploading Firmware
 
@@ -50,7 +53,7 @@ You must have Arduino Core and CMake (version 2.8 or greater) installed on
 your machine.
 
 ```
-sudo apt install arduino-core cmake
+sudo apt install arduino-core build-essential cmake
 ```
 
 OSCC uses CMake to avoid some of the limitations of the Arduino IDE. Using this method you can build
@@ -68,7 +71,7 @@ mkdir build
 cd build
 ```
 
-To generate Makefiles, tell CMake which platform to build firmware for. For example, if you want to build
+To generate Makefiles, tell `cmake` which platform to build firmware for. For example, if you want to build
 firmware for the Kia Soul:
 
 ```
@@ -83,7 +86,9 @@ enabled, use the following instead:
 cmake .. -DKIA_SOUL=ON -DCMAKE_BUILD_TYPE=Release
 ```
 
-<a name="startup-test"></a>*For older (< 1.1.0) versions of the actuator control board, you need to set an additional flag using `cmake .. -DKIA_SOUL=ON -DBRAKE_STARTUP_TEST=OFF` to disable startup tests that are not compatible with the previous board design.*
+<a name="brake-startup-test"></a>
+**NOTE:**
+> For older (< 1.2.0) versions of the actuator control board, you need to set an additional flag using `cmake .. -DKIA_SOUL=ON -DBRAKE_STARTUP_TEST=OFF` to disable startup tests that are not compatible with the previous board design.
 
 This will generate the necessary files for building.
 
@@ -98,7 +103,7 @@ If you'd like to build only a specific module, you can provide a target name to
 
 ```
 make brake
-make gateway
+make can-gateway
 make steering
 make throttle
 ```
@@ -110,7 +115,7 @@ an Arduino with a USB cable, your machine assigns a serial device to it with the
 path `/dev/ttyACM#` where `#` is a digit starting at 0 and increasing by one with
 each additional Arduino connected.
 
-You can upload firmware to a single module or to all modules. By default, CMake
+You can upload firmware to a single module or to all modules. By default, `cmake`
 is configured to expect each module to be `/dev/ttyACM0`, so if you connect a
 single module to your machine, you can flash it without changing anything:
 
@@ -119,7 +124,7 @@ make throttle-upload
 ```
 
 However, if you want to flash all modules, you need to change the ports in
-CMake for each module to match what they are on your machine. The easiest way
+`cmake` for each module to match what they are on your machine. The easiest way
 is to connect each module in alphabetical order (brake, CAN gateway, steering,
 throttle) so that they are assigned `/dev/ttyACM0` through `/dev/ttyACM3` in
 a known order. You can then change the ports during the `cmake ..` step:
@@ -152,7 +157,7 @@ you can get it with the following command:
 sudo apt install screen
 ```
 
-You need to enable debug mode with `-DDEBUG=ON` and tell CMake what serial port
+You need to enable debug mode with `-DDEBUG=ON` and tell `cmake` what serial port
 the module you want to monitor is connected to
 (see [section on uploading](#uploading-the-firmware) for details on the default
 ports for each module). The default baud rate is `115200` but you can change it:
@@ -184,9 +189,29 @@ strange behavior while printing that does not occur otherwise.
 
 There are two types of tests available: unit and property-based.
 
+### Test Dependencies
+
+The unit tests and property-based tests each have their own set of dependencies
+required to run the tests.
+
+For the unit tests you must have **Cucumber 2.0.0** and its dependency **Boost** installed:
+
+```
+sudo apt install ruby-dev libboost-dev
+sudo gem install cucumber -v 2.0.0
+```
+
+For the property-based tests you must have **Rust**, its build manager **Cargo**, and **libclang**:
+
+```
+sudo apt install rustc cargo clang libclang-dev
+```
+
+### Running Tests
+
 Building and running the tests is similar to the firmware itself, but you must instead tell
-CMake to build the tests instead of the firmware with the `-DTESTS=ON` flag. We also pass
-the `-DCMAKE_BUILD_TYPE=Release` flag so that CMake will disable debug symbols and enable
+`cmake` to build the tests instead of the firmware with the `-DTESTS=ON` flag. We also pass
+the `-DCMAKE_BUILD_TYPE=Release` flag so that `cmake` will disable debug symbols and enable
 optimizations, good things to do when running tests to ensure nothing breaks with
 optimizations. Lastly, you must tell the tests which vehicle header to use for
 the tests (e.g., `-DKIA_SOUL=ON`).
@@ -200,22 +225,18 @@ cmake .. -DTESTS=ON -DCMAKE_BUILD_TYPE=Release -DKIA_SOUL=ON
 
 ### Unit Tests
 
-Each module has a suite of unit tests that use **Cucumber** with **Cgreen**. There are prebuilt
-64-bit Linux versions in `firmware/common/testing/framework`. Boost is required for Cucumber-CPP
-and has been statically linked into `libcucumber-cpp.a`. If you need to build your own versions
-you can use the provided script `build_test_framework.sh` which will install the Boost dependencies
-(needed for building), clone the needed repositories with specific hashes, build the Cgreen and
-Cucumber-CPP libraries, and place static Boost in the Cucumber-CPP library. The built will be placed
-in an `oscc_test_framework` directory in the directory that you ran the script from. You can then copy
-`oscc_test_framework/cucumber-cpp` and `oscc_test_framework/cgreen` to
-`firmware/common/testing/framework`.
+Each module has a suite of unit tests that use **Cucumber** with **Cgreen**. There are pre-built
+64-bit Linux versions in `firmware/common/testing/framework`.
 
-You must have **Cucumber** installed to run the tests:
+Boost is required for Cucumber-CPP and has been statically linked into `libcucumber-cpp.a`.
+If you need to build your own versions you can use the provided script `build_test_framework.sh`
+which will install the Boost dependencies (needed for building), clone the needed
+repositories with specific hashes, build the Cgreen and Cucumber-CPP libraries,
+and place static Boost in the Cucumber-CPP library.
 
-```
-sudo apt install ruby-dev
-sudo gem install cucumber -v 2.0.0
-```
+The built libraries will be placed in an `oscc_test_framework` directory in the
+directory that you ran the script from. You can then copy `oscc_test_framework/cucumber-cpp`
+and `oscc_test_framework/cgreen` to `firmware/common/testing/framework`.
 
 We can run all of the unit tests available:
 
@@ -262,10 +283,6 @@ Feature: Receiving commands
 The throttle, steering, and brake modules, along with the PID controller library, also contain a series of
 property-based tests.
 
-These tests use [QuickCheck for Rust](http://burntsushi.net/rustdoc/quickcheck/), so **Rust** and **Cargo**
-need to be [installed](https://www.rust-lang.org/en-US/install.html) in order to run them locally.
-
-
 We can run all of the property-based tests available:
 
 ```
@@ -301,38 +318,10 @@ running 0 tests
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured
 ```
 
-### Run All Tests
+### All Tests
 
-Finally, you can run all available tests:
+Finally, as a convenience you can run all available tests:
 
 ```
 make run-all-tests
 ```
-
-
-## Easier CMake Configuration
-
-If you have a lot of `-D` commands to pass to CMake (e.g., configuring the serial
-port and baud rates of all of the modules), you can instead configure with a GUI
-using `cmake-gui`:
-
-```
-sudo apt install cmake-gui
-```
-
-Then use `cmake-gui` where you would normally use `cmake`:
-
-```
-cd firmware
-mkdir build
-cd build
-cmake-gui ..
-```
-
-The GUI will open and you can change all of the options you would normally need
-to pass on the command line. First, press the `Configure` button and then press
-`Finish` on the dialog that opens. In the main window you'll see a list of
-options that you can change that would normally be configured on the command line
-with `-D` commands. When you're done, click `Configure` again and then click
-the `Generate` button. You can then close `cmake-gui` and run any `make` commands
-like you normally would.
