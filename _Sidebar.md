@@ -1,11 +1,6 @@
 * [[Home|Home]]
 * [[API|API]]
-* [[Hardware|Hardware]]
-    * [[CAN Gateway|Hardware-Gateway]]
-    * [[Brake|Hardware-Brake]]
-    * [[Steering|Hardware-Steering]]
-    * [[Throttle|Hardware-Throttle]]
-    * [[Power Distribution|Hardware-Power-Distribution]]
+* Hardware
     * [[Clearing Faults|Hardware-Clearing-Faults]]
 * [[Firmware|Firmware]]
     * [[Brake|Firmware-Brake]]
