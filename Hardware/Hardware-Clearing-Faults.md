@@ -12,7 +12,7 @@ Typical causes of these faults are sending spoof voltages to the car outside of 
 
 ### Clearing a Hard Fault
 
-If you have hard faulted your Kia Soul, then you will need to follow this tutorial to reset the vehicle to a drivable state. The first step is to make sure you correct whatever initially caused the hard fault. Whatever the cause, if the initial issue isn't fixed the vehicle will re-enter the hard fault again. 
+If you have hard faulted your Kia Soul, then you will need to follow this tutorial to reset the vehicle to a drivable state. The first step is to make sure you correct whatever initially caused the hard fault. Whatever the cause, if the initial issue isn't fixed the vehicle will re-enter the hard fault again. You will also need a Kia-compatible OBD-II scan tool.
 
 1. Switch the vehicle and all OSCC modules off.
 
