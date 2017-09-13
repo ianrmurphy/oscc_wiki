@@ -16,8 +16,7 @@ There are four hardware modules, each with its own firmware:
 # Versions
 
 New versions of the API and the firmware are released periodically as new features are added and bugs are
-fixed. **It is of vital importance that you update whenever there is a new version so that you can be certain
-you are not using a version with known safety issues.**
+fixed. **It's important that you update whenever there is a new version to ensure that you are not using a version with known safety issues.**
 
 There are four versions to be aware of:
 
@@ -56,7 +55,7 @@ your machine.
 sudo apt install arduino-core build-essential cmake
 ```
 
-OSCC uses CMake to avoid some of the limitations of the Arduino IDE. Using this method you can build
+OSCC uses CMake to avoid some of the limitations of the Arduino IDE. Using this method, you can build
 and upload the firmware from the command-line.
 
 Check out [Arduino CMake](https://github.com/queezythegreat/arduino-cmake) for more information.
@@ -187,7 +186,9 @@ strange behavior while printing that does not occur otherwise.
 
 ## Tests
 
-There are two types of tests available: unit and property-based.
+There are two types of tests available: 
+* Unit 
+* Property-based
 
 ### Test Dependencies
 
@@ -229,8 +230,8 @@ Each module has a suite of unit tests that use **Cucumber** with **Cgreen**. The
 64-bit Linux versions in `firmware/common/testing/framework`.
 
 Boost is required for Cucumber-CPP and has been statically linked into `libcucumber-cpp.a`.
-If you need to build your own versions you can use the provided script `build_test_framework.sh`
-which will install the Boost dependencies (needed for building), clone the needed
+If you need to build your own versions you can use the provided script `build_test_framework.sh`.
+This will install the Boost dependencies (needed for building), clone the needed
 repositories with specific hashes, build the Cgreen and Cucumber-CPP libraries,
 and place static Boost in the Cucumber-CPP library.
 
@@ -320,7 +321,7 @@ test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured
 
 ### All Tests
 
-Finally, as a convenience you can run all available tests:
+Finally, as a convenience, you can run all available tests:
 
 ```
 make run-all-tests

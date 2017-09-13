@@ -1,14 +1,14 @@
 # OSCC API
 
-OSCC's API is the entry point for your application's communication with the various on-vehicle modules. You can utilize the provided functions to perform the following operations:
+OSCC's API is the entry point for your application's communication with various on-vehicle modules. By utilizing the provided functions, you can perform the following operations:
 
-* sending control commands to the vehicle
-* receiving reports on each OSCC module's state
-* obtaining control messages from the vehicle's OBD-II CAN network
-* opening and closing CAN communications with the modules
-* enabling and disabling the system
+* Send control commands to the vehicle
+* Receive reports on each OSCC module's state
+* Obtain control messages from the vehicle's OBD-II CAN network
+* Open and close CAN communications with the modules
+* Enable and disable the system
 
-The API uses a callback-based approach to provide asynchronous, interrupt-driven I/O, enabling you to decide how to handle new information upon receiving reports. Using OSCC through the API also allows you to send commands to the vehicle while still ensuring that safe values are being calculated before being written to the various vehicle ECUs.
+The API uses a callback-based approach to provide asynchronous, interrupt-driven I/O, allowing you to decide how to handle new information after receiving reports. Using OSCC through the API also allows you to send commands to the vehicle while still ensuring that safe values are being calculated before being written to the various vehicle ECUs.
 Working with the API is the **safest and most modular way** of using OSCC in your own software.
 
 ## Function Overview
@@ -35,7 +35,7 @@ After you have initialized your CAN connection to the firmware modules, these me
 allows your application to choose when to enable sending commands to the firmware. Although you can only send commands when the system is
 enabled, you can receive reports at any time.
 
-**Publish control command to the corresponding module.**
+**Publish control commands to the corresponding module.**
 
 ```c
 oscc_result_t publish_brake_position( double normalized_position );
@@ -63,16 +63,16 @@ report to your software.
 
 In addition to OSCC specific reports, it will also forward any non-OSCC reports to any callback function registered with
 ```subscribe_to_obd_messages```. This can be used to view CAN frames received from the vehicle's OBD-II CAN channel. If you know
-the corresponding CAN frame's id, you can parse reports sent from the car. Currently, we forward the following OBD messages:
+the corresponding CAN frame's ID, you can parse reports sent from the car. Currently, we forward the following OBD messages:
 
-* steering wheel angle
-* wheel speeds
-* brake pressure
+* Steering wheel angle
+* Wheel speeds
+* Brake pressure
 
 The details of the structure of these messages can be found in the vehicle-specific header files.
 
 ## Joystick commander example application
 
-We've created an example application, joystick commander, that uses the OSCC API to interface with the firmware, allowing you to send commands using a game controller and receive reports from the OSCC modules and the on-board OBD-II. These commands are converted into CAN messages, which the OSCC API sends to the respective Arduino modules and are used to actuate the vehicle. This example exercises all of the functions provided by the API, showing how the `publish` methods can be used to control the vehicle and how OBD messages and OSCC reports can be used to determine various parts of the vehicle's state. This application also demonstrates the type of filtering that you may need to do in order to smooth inputs being sent to the vehicle, preventing the car's ECUs from detecting discontinuities in signal and possibly entering a fault state.
+We've created an example application, joystick commander, that uses the OSCC API to interface with the firmware. This will allow you to send commands using a game controller, as well as receive reports from the OSCC modules and the on-board OBD-II. These commands are converted into CAN messages, which the OSCC API sends to the respective Arduino modules, and are used to actuate the vehicle. This example exercises all of the functions provided by the API. It shows how the `publish` methods can be used to control the vehicle, and how OBD messages and OSCC reports can be used to determine various parts of the vehicle's state. This application also demonstrates the type of filtering that you may need to do in order to smooth inputs being sent to the vehicle, preventing the car's ECUs from detecting discontinuities in signal and possibly entering a fault state.
 
 [OSCC Joystick Commander](https://github.com/PolySync/oscc-joystick-commander)

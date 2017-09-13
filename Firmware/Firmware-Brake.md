@@ -50,7 +50,7 @@ All modules listen for the fault report message and disable themselves if learni
 
 | Type     | Size (bytes) | Description |
 | -----    | ----         | ----- |
-| uint8_t  | 2            | **OSCC Magic Number** <br> Identifies CAN frame as from OSCC. <br> Byte 0 should be \ref 0x05. <br> Byte 1 should be \ref 0x55. |
+| uint8_t  | 2            | **OSCC Magic Number** <br> Identifies CAN frame as coming from OSCC. <br> Byte 0 should be \ref 0x05. <br> Byte 1 should be \ref 0x55. |
 | uint8_t  | 1            | **Enabled Status** <br> Zero value means disabled (commands are ignored). <br> Non-zero value means enabled (commands are sent to vehicle). |
 | uint8_t  | 1            | **Operator Override** <br> Zero value means there has been no operator override. <br> Non-zero value means an operator has physically overridden the system. |
 | uint8_t  | 1            | **DTCs** <br> Bitfield of DTCs present in the module. |
@@ -64,13 +64,13 @@ All modules listen for the fault report message and disable themselves if learni
 
 | Type     | Size (bytes) | Description |
 | -------- | ------------ | ----------- |
-| uint8_t  | 2            | **OSCC Magic Number** <br> Identifies CAN frame as from OSCC. <br> Byte 0 should be \ref 0x05. <br> Byte 1 should be \ref 0x55. |
+| uint8_t  | 2            | **OSCC Magic Number** <br> Identifies CAN frame as coming from OSCC. <br> Byte 0 should be \ref 0x05. <br> Byte 1 should be \ref 0x55. |
 | uint32_t | 4            | **Fault Origin ID** <br> Enum value equaling FAULT_ORIGIN_BRAKE. |
 | uint8_t  | 2            | **Reserved** |
 
 ## DTCs
 
-The DTC field is an 8-bit bitfield - when a DTC's bit position is a 1, that DTC is active.
+The DTC field is an 8-bit bitfield. When a DTC's bit position is a 1, then that DTC is active.
 
 | Bit Position | DTC Description |
 | ------------ | --------------- |
@@ -78,7 +78,7 @@ The DTC field is an 8-bit bitfield - when a DTC's bit position is a 1, that DTC 
 
 ## Build Instructions
 
-Follow the [[general build instructions|Firmware#1-firmware_building-and-uploading-firmware]] and then run:
+Follow the [[general build instructions|Firmware#1-firmware_building-and-uploading-firmware]], then run:
 
 ```
 make brake
