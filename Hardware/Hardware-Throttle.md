@@ -12,37 +12,6 @@ The Kia ECU implements fault detection on the accelerator pedal position sensor 
 
 A relay is used to switch the input of the ETC microprocessor from the stock pedal position sensor and the spoofed positions.
 
-# Hardware
-
-The new PolySync throttle/steering shield is undergoing testing and validation. Board designs and schematics will be available as soon at the boards are thoroughly proven.
-
-### Parts
-
-| Part          | Price  |
-| ------------- | -----:|
-| [[Arduino Uno|https://www.arduino.cc/en/Main/arduinoBoardUno]]      | $24.95 |
-| [[PolySync Steering/Throttle Shield R0|http://www.oscci.io]]      | TBD |
-
-### Assembly
-1. Print [[the dash enclosure|https://github.com/PolySync/OSCC/blob/master/3d_models/dash_enclosure/STC_housing.STL]] if you haven't yet.
-2. Screw the Arduino Uno to the enclosure.
-3. Press the sensor interface board onto the Arduino.
-4. Upload the firmware to the controller.
-
-### Installation
-
-![Throttle Wiring](/images/throttle_module/throttle_diagram.png)
-
-1. Cut the **blue** and **green** wires coming from the APS.
-2. Splice matching color wires onto the 4 new wire ends to lengthen each wire.
-3. Connect the four wires to the throttle control module.
- * **Green** from the APS goes to SIG IN A.
- * **Blue** from the APS goes to SIG IN B.
- * Remaining **green** goes to SIG OUT A.
- * Remaining **blue** goes to SIG OUT B.
-2. Power the unit with the emergency stop power bus.
-3. Wire the module to the Control CAN bus.
-
 # Resources & Further Reading
 - [Accelerator Position Sensor Response](docs/throttle_module/throttle_sensor_spoof.ods)
 - [Accelerator Pedal Wiring Diagram](/images/throttle_module/aps_wiring.png)

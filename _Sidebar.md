@@ -1,7 +1,12 @@
 * [[Home|Home]]
 * [[API|API]]
-* Hardware
+* [[Hardware|Hardware]]
     * [[Clearing Faults|Hardware-Clearing-Faults]]
+    * [[Brake|Hardware-Brake]]
+    * [[CAN Gateway|Hardware-Gateway]]
+    * [[Steering|Hardware-Steering]]
+    * [[Throttle|Hardware-Throttle]]
+    * [[OBD Messages|Firmware-OBD]]
 * [[Firmware|Firmware]]
     * [[Brake|Firmware-Brake]]
     * [[Steering|Firmware-Steering]]
