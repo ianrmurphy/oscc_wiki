@@ -78,7 +78,7 @@ The DTC field is an 8-bit bitfield. When a DTC's bit position is a 1, then that 
 
 ## Build Instructions
 
-Follow the [[general build instructions|Firmware#1-firmware_building-and-uploading-firmware]], then run:
+Follow the [README build instructions](https://github.com/PolySync/oscc/tree/devel#building-the-firmware), then run:
 
 ```
 make brake

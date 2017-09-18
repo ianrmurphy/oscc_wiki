@@ -73,7 +73,7 @@ All modules listen for the fault report message and disable themselves if learni
 
 ## Build Instructions
 
-Follow the [[general build instructions|Firmware#1-firmware_building-and-uploading-firmware]], then run:
+Follow the [README build instructions](https://github.com/PolySync/oscc/tree/devel#building-the-firmware), then run:
 
 ```
 make throttle
