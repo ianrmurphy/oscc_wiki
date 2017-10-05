@@ -1,28 +1,18 @@
 ![Logo](https://raw.githubusercontent.com/wiki/PolySync/OSCC/images/oscc_logo_title.png)
 
+# Introduction
 
 The Open Source Car Control (OSCC) project was created to give everyone the opportunity to build their own development autonomous vehicle. Other by-wire vehicle platforms (components + vehicle) can cost upwards of $140,000, and are “black boxed,” preventing further investigation and innovation into autonomy. We figured out a way to offer a more affordable, open-source option to the public. By using tools and parts common across robotics and automotive, you can use [our kits](http://www.drivekit.io) combined with the software of your choice, to build a self-driving car at low cost.
 This wiki will guide you through the process, acting as the main source of documentation for developers and engineers working with (or contributing to) the Open Source Car Control (OSCC) project. The goal of this wiki is to house and present all of the information you need to modify a Kia Soul (or similar vehicle) for full by-wire control.
 
-# Introduction
+Open Source Car Control (OSCC) provides developers with a collection of firmware and hardware designs for computer control of their autonomous development vehicles. It's a modular, stable way of using software to interface with a vehicle’s communications network and control systems.
 
+OSCC allows developers to:
 
-![Driving](https://raw.githubusercontent.com/wiki/PolySync/OSCC/images/driving.gif)
+* Send control commands to the vehicle
+* Read control messages from the vehicle’s OBD-II CAN network
+* Forward reports for current vehicle control states (e.g. steering angle & wheel speeds) 
 
-The 2014 Kia Soul ships with **steering-by-wire** and **throttle-by-wire**. This means the actuators of these two systems are, at some point, controlled electronically. Because of this, these systems can be exploited in order to gain full control of the actuators.
+Control commands are issued to the vehicle component ECUs via the steering wheel torque sensor, throttle position sensor, and brake position sensor. (Because the petrol Kia Soul isn’t brake by-wire capable, an auxiliary actuator is added to enable braking.) This low-level interface means that OSCC offers full-range control of the vehicle without altering the factory safety-case, spoofing CAN messages, or hacking ADAS features.
 
-When considering brake control in the Soul, it is important to note that these vehicles don’t have electronically controlled brakes. As a solution, you can add a brake-by-wire system found on some hybrid vehicles. The actuators from these hybrid vehicles can be added in-line to the Kia brake system in order to control brake pressure.
-
-To achieve lateral and longitudinal control of the Kia Soul it is necessary to control three separate automotive systems, interface with the existing vehicle CAN bus, and power the additional microprocessors and actuators. Each of the control modules introduced into the vehicle are built around Arduino controllers. Arduino controllers provide a cheap and easy way to introduce embedded controllers into the system, and offer flexibility when controlling vehicles other than the Kia Soul.
-
-A new network of controllers will be created that communicate via a CAN bus, called the **Control CAN bus**. Control commands can be published to this bus in the form of CAN frames from a node executing a path planning algorithm or a simple game controller. An example of the latter is included in the repo in the [[control|https://github.com/PolySync/OSCC/tree/master/control/]] directory.
-
-PolySync is working on creating Arduino shields that provide all the function needed for interfacing with the steering, throttle, and brake system. Check back soon for schematics and board layouts!
-
-
-
-### - [[Overview|overview]]
-### - [[Steering|steering]]
-### - [[Throttle|throttle]]
-### - [[Brake|brake]]
-### - [[CAN Gateway & Control CAN|CAN-Gateway-&-Control-CAN]]
+Although we currently support only the 2014+ Kia Soul (w/ Kia Soul EV coming soon), the API and firmware have been designed to make it relatively easy to add functionality to any by-wire, OBD-II capable vehicle. Additionally, the separation between API and firmware means it's easier to modify and test parts of your program without having to update the flashed OSCC modules.
