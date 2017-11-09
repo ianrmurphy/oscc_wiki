@@ -8,7 +8,7 @@ The CAN Gateway acts as a bridge between the vehicle's native OBD-II bus and Con
 
 The image below demonstrates how the CAN gateway sits on both the Control CAN bus and the OBD-II CAN bus, but only publishes CAN messages in one direction: towards the Control CAN bus from the OBD-II CAN bus.
 
-![CAN Gateway](/images/can/can_gateway_diagram.png)
+![CAN Gateway](images/can/can_gateway_diagram.png)
 
 There is a CAN specification in each module's firmware page:
 
