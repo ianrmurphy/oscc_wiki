@@ -33,7 +33,7 @@ All modules listen for the fault report message and disable themselves if learni
 
 | Type     | Size (bytes) | Description |
 | -------- | ------------ | ----------- |
-| uint8_t  | 2            | **OSCC Magic Number** <br> Identifies CAN frame as coming from OSCC. <br> Byte 0 should be 0x05. <br> Byte 1 should be 0x55. |
+| uint8_t  | 2            | **OSCC Magic Number** <br> Identifies CAN frame as coming from OSCC. <br> Byte 0 should be 0x05. <br> Byte 1 should be 0xCC. |
 | uint16_t | 2            | **Spoof Value Low** <br> Value to be sent on the low spoof signal to the DAC. <br> Voltage converted to a 12-bit step value. |
 | uint16_t | 2            | **Spoof Value High** <br> Value to be sent on the high spoof signal to the DAC. <br> Voltage converted to a 12-bit step value. |
 | uint8_t  | 2            | **Reserved** |
@@ -46,7 +46,7 @@ All modules listen for the fault report message and disable themselves if learni
 
 | Type     | Size (bytes) | Description |
 | -----    | ----         | ----- |
-| uint8_t  | 2            | **OSCC Magic Number** <br> Identifies CAN frame as coming from OSCC. <br> Byte 0 should be 0x05. <br> Byte 1 should be 0x55. |
+| uint8_t  | 2            | **OSCC Magic Number** <br> Identifies CAN frame as coming from OSCC. <br> Byte 0 should be 0x05. <br> Byte 1 should be 0xCC. |
 | uint8_t  | 1            | **Enabled Status** <br> Zero value means disabled (commands are ignored). <br> Non-zero value means enabled (commands are sent to vehicle). |
 | uint8_t  | 1            | **Operator Override** <br> Zero value means there has been no operator override. <br> Non-zero value means an operator has physically overridden the system. |
 | uint8_t  | 1            | **DTCs** <br> Bitfield of DTCs present in the module. |
@@ -60,7 +60,7 @@ All modules listen for the fault report message and disable themselves if learni
 
 | Type     | Size (bytes) | Description |
 | -------- | ------------ | ----------- |
-| uint8_t  | 2            | **OSCC Magic Number** <br> Identifies CAN frame as coming from OSCC. <br> Byte 0 should be 0x05. <br> Byte 1 should be 0x55. |
+| uint8_t  | 2            | **OSCC Magic Number** <br> Identifies CAN frame as coming from OSCC. <br> Byte 0 should be 0x05. <br> Byte 1 should be 0xCC. |
 | uint32_t | 4            | **Fault Origin ID** <br> Enum value equaling FAULT_ORIGIN_THROTTLE. |
 | uint8_t  | 2            | **Reserved**
 
