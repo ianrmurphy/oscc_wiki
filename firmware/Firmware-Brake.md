@@ -37,10 +37,9 @@ All modules listen for the fault report message and disable themselves if learni
 
 | Type     | Size (bytes) | Description |
 | -------- | ------------ | ----------- |
-| uint8_t  | 2            | **OSCC Magic Number** <br> Identifies CAN frame as from OSCC. <br> Byte 0 should be \ref 0x05. <br> Byte 1 should be \ref 0x55. |
+| uint8_t  | 2            | **OSCC Magic Number** <br> Identifies CAN frame as from OSCC. <br> Byte 0 should be 0x05. <br> Byte 1 should be 0xCC. |
 | uint16_t | 2            | **Pedal Value** <br> [65535 == 100%] |
-| uint8_t  | 1            | **Enable** <br> Command to enable or disable brake control. <br> Zero to disable. <br> Non-zero to enable. |
-| uint8_t  | 3            | **Reserved** |
+| uint8_t  | 4            | **Reserved** |
 
 ### Brake Report
 
@@ -50,7 +49,7 @@ All modules listen for the fault report message and disable themselves if learni
 
 | Type     | Size (bytes) | Description |
 | -----    | ----         | ----- |
-| uint8_t  | 2            | **OSCC Magic Number** <br> Identifies CAN frame as coming from OSCC. <br> Byte 0 should be \ref 0x05. <br> Byte 1 should be \ref 0x55. |
+| uint8_t  | 2            | **OSCC Magic Number** <br> Identifies CAN frame as coming from OSCC. <br> Byte 0 should be 0x05. <br> Byte 1 should be 0xCC. |
 | uint8_t  | 1            | **Enabled Status** <br> Zero value means disabled (commands are ignored). <br> Non-zero value means enabled (commands are sent to vehicle). |
 | uint8_t  | 1            | **Operator Override** <br> Zero value means there has been no operator override. <br> Non-zero value means an operator has physically overridden the system. |
 | uint8_t  | 1            | **DTCs** <br> Bitfield of DTCs present in the module. |
@@ -64,7 +63,7 @@ All modules listen for the fault report message and disable themselves if learni
 
 | Type     | Size (bytes) | Description |
 | -------- | ------------ | ----------- |
-| uint8_t  | 2            | **OSCC Magic Number** <br> Identifies CAN frame as coming from OSCC. <br> Byte 0 should be \ref 0x05. <br> Byte 1 should be \ref 0x55. |
+| uint8_t  | 2            | **OSCC Magic Number** <br> Identifies CAN frame as coming from OSCC. <br> Byte 0 should be 0x05. <br> Byte 1 should be 0xCC. |
 | uint32_t | 4            | **Fault Origin ID** <br> Enum value equaling FAULT_ORIGIN_BRAKE. |
 | uint8_t  | 2            | **Reserved** |
 
