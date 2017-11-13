@@ -30,6 +30,8 @@ All modules listen for the fault report message and disable themselves if learni
 
 #### ID: 0x52
 
+> *Note*: Throttle reports should be checked after sending throttle enable command to ensure that the module received the command and enabled properly.
+
 | Type     | Size (bytes) | Description |
 | -------- | ------------ | ----------- |
 | uint8_t  | 2            | **OSCC Magic Number** <br> Identifies CAN frame as coming from OSCC. <br> Byte 0 should be 0x05. <br> Byte 1 should be 0xCC. |
@@ -38,6 +40,8 @@ All modules listen for the fault report message and disable themselves if learni
 ### Throttle Disable
 
 #### ID: 0x53
+
+> *Note*: Throttle reports should be checked after sending throttle disable command to ensure that the module received the command and disabled properly.
 
 | Type     | Size (bytes) | Description |
 | -------- | ------------ | ----------- |
