@@ -25,6 +25,24 @@ All modules listen for the fault report message and disable themselves if learni
 * Sends steering reports with current state information
 * Sends fault reports on fault event
 
+
+### Steering Enable
+
+#### ID: 0x54
+
+| Type     | Size (bytes) | Description |
+| -------- | ------------ | ----------- |
+| uint8_t  | 2            | **OSCC Magic Number** <br> Identifies CAN frame as coming from OSCC. <br> Byte 0 should be 0x05. <br> Byte 1 should be 0xCC. |
+| uint8_t  | 6            | **Reserved** |
+
+### Steering Disable
+
+#### ID: 0x55
+
+| Type     | Size (bytes) | Description |
+| -------- | ------------ | ----------- |
+| uint8_t  | 2            | **OSCC Magic Number** <br> Identifies CAN frame as coming from OSCC. <br> Byte 0 should be 0x05. <br> Byte 1 should be 0xCC. |
+
 ### Steering Command
 
 #### ID: 0x64
@@ -36,7 +54,6 @@ All modules listen for the fault report message and disable themselves if learni
 | uint8_t  | 2            | **OSCC Magic Number** <br> Identifies CAN frame as coming from OSCC. <br> Byte 0 should be \ref 0x05. <br> Byte 1 should be \ref 0x55. |
 | uint16_t | 2            | **Spoof Value Low** <br> Value to be sent on the low spoof signal to the DAC. <br> Voltage converted to a 12-bit step value. |
 | uint16_t | 2            | **Spoof Value High** <br> Value to be sent on the high spoof signal to the DAC. <br> Voltage converted to a 12-bit step value. |
-| uint8_t  | 1            | **Enable** <br> Command to enable or disable steering control. <br> Zero to disable. <br> Non-zero to enable. |
 | uint8_t  | 1            | **Reserved** |
 
 ### Steering Report
