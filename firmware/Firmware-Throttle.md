@@ -25,6 +25,25 @@ All modules listen for the fault report message and disable themselves if learni
 * Sends throttle reports with current state information
 * Sends fault reports on fault event
 
+
+### Throttle Enable
+
+#### ID: 0x52
+
+| Type     | Size (bytes) | Description |
+| -------- | ------------ | ----------- |
+| uint8_t  | 2            | **OSCC Magic Number** <br> Identifies CAN frame as coming from OSCC. <br> Byte 0 should be 0x05. <br> Byte 1 should be 0xCC. |
+| uint8_t  | 6            | **Reserved** |
+
+### Throttle Disable
+
+#### ID: 0x53
+
+| Type     | Size (bytes) | Description |
+| -------- | ------------ | ----------- |
+| uint8_t  | 2            | **OSCC Magic Number** <br> Identifies CAN frame as coming from OSCC. <br> Byte 0 should be 0x05. <br> Byte 1 should be 0xCC. |
+| uint8_t  | 6            | **Reserved** |
+
 ### Throttle Command
 
 #### ID: 0x62
