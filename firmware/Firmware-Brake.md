@@ -33,6 +33,8 @@ All modules listen for the fault report message and disable themselves if learni
 
 #### ID: 0x50
 
+> *Note*: Brake reports should be checked after sending brake enable command to ensure that the module received the command and enabled properly.
+
 | Type     | Size (bytes) | Description |
 | -------- | ------------ | ----------- |
 | uint8_t  | 2            | **OSCC Magic Number** <br> Identifies CAN frame as coming from OSCC. <br> Byte 0 should be 0x05. <br> Byte 1 should be 0xCC. |
@@ -41,6 +43,8 @@ All modules listen for the fault report message and disable themselves if learni
 ### Brake Disable
 
 #### ID: 0x51
+
+> *Note*: Brake reports should be checked after sending brake disable command to ensure that the module received the command and disabled properly.
 
 | Type     | Size (bytes) | Description |
 | -------- | ------------ | ----------- |
