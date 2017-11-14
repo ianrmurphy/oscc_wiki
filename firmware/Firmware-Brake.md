@@ -58,8 +58,6 @@ All modules listen for the fault report message and disable themselves if learni
 
 > *Note*: Limit the rate at which you send commands onto the CAN bus to prevent overloading the bus and the processors on the modules. A rate of around 20Hz should be sufficient.
 
-#### Transmit Rate: defined by sending application.
-
 | Type     | Size (bytes) | Description |
 | -------- | ------------ | ----------- |
 | uint8_t  | 2            | **OSCC Magic Number** <br> Identifies CAN frame as from OSCC. <br> Byte 0 should be 0x05. <br> Byte 1 should be 0xCC. |
