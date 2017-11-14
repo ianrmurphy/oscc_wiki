@@ -51,7 +51,7 @@ All modules listen for the fault report message and disable themselves if learni
 
 #### ID: 0x64
 
-#### Transmit Rate: defined by sending application.
+> *Note*: Limit the rate at which you send commands onto the CAN bus to prevent overloading the bus and the processors on the modules. A rate of around 20Hz should be sufficient.
 
 | Type     | Size (bytes) | Description |
 | -------- | ------------ | ----------- |
