@@ -1,4 +1,4 @@
-# Brake
+# Brake (Petrol)
 
 The brake firmware is responsible for reading values from the brake actuator, sending reports on its state, and receiving brake commands and fault reports from the control CAN. When the brake firmware receives a brake command message, it will attempt to match the requested brake position by accumulating and releasing brake pressure. Receiving a fault report will cause the brake module to disable.
 
