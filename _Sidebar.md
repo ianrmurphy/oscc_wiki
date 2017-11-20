@@ -1,7 +1,7 @@
 * [[Home|Home]]
 * [[Hardware|Hardware-Main]]
     * [[Clearing Faults|Hardware-Clearing-Faults]]
-    * [[Brake|Hardware-Brake]]
+    * [[Brake (Petrol)|Hardware-Brake-(Petrol)]]
     * [[CAN Gateway|Hardware-Gateway]]
     * [[Steering|Hardware-Steering]]
     * [[Throttle|Hardware-Throttle]]
