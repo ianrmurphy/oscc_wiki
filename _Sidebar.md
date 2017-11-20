@@ -6,6 +6,7 @@
     * [[Steering|Hardware-Steering]]
     * [[Throttle|Hardware-Throttle]]
 * [[Firmware|Firmware-Main]]
+    * [[Brake (EV)|Firmware-Brake-(EV)]]
     * [[Brake (Petrol)|Firmware-Brake-(Petrol)]]
     * [[Steering|Firmware-Steering]]
     * [[Throttle|Firmware-Throttle]]
