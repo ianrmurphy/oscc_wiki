@@ -6,7 +6,7 @@
     * [[Steering|Hardware-Steering]]
     * [[Throttle|Hardware-Throttle]]
 * [[Firmware|Firmware-Main]]
-    * [[Brake|Firmware-Brake]]
+    * [[Brake|Firmware-Brake-(Petrol)]]
     * [[Steering|Firmware-Steering]]
     * [[Throttle|Firmware-Throttle]]
     * [[OBD Messages|Firmware-OBD]]
