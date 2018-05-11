@@ -18,5 +18,6 @@ Control commands are issued to the vehicle component ECUs via the steering wheel
 
 Although we currently support only the 2014+ Kia Soul (conventional) and Kia Soul EV, the API and firmware have been designed to make it relatively easy to add functionality to any by-wire, OBD-II capable vehicle. Additionally, the separation between API and firmware means it's easier to modify and test parts of your program without having to update the flashed OSCC modules.
 
-**DriveKit:** If you're looking for a turn-key solution, we offer a commercially-supported vehicle control interface called DriveKit. DriveKit is a complete system for by-wire control of Kia Soul EV and Kia Niro Hybrid vehicles. It includes an integrated control module, automotive-grade wiring harnesses, e-stop switch, and additional vehicle control features –– plus it installs in under an hour. Visit https://polysync.io/drivekit/ for more information.
+## DriveKit
+If you're looking for a turn-key solution, we offer a commercially-supported vehicle control interface called DriveKit. DriveKit is a complete system for by-wire control of Kia Soul EV and Kia Niro Hybrid vehicles. It includes an integrated control module, automotive-grade wiring harnesses, e-stop switch, and additional vehicle control features –– plus it installs in under an hour. Visit https://polysync.io/drivekit/ for more information.
 
