@@ -3,9 +3,12 @@
 # Introduction
 
 The Open Source Car Control (OSCC) project was created to give everyone the opportunity to build their own development autonomous vehicle. Other by-wire vehicle platforms (components + vehicle) can cost upwards of $140,000, and are “black boxed,” preventing further investigation and innovation into autonomy. We decided to offer a more affordable, open-source option to developers. By using tools and parts common across robotics and automotive, the software of your choice, and some elbow grease you can build an autonomous development vehicle at a significantly lower cost.
+
 This wiki will guide you through the process, acting as the main source of documentation for developers and engineers working with (or contributing to) the Open Source Car Control (OSCC) project. The goal of this wiki is to house and present all of the information you need to modify a Kia Soul (or similar vehicle) for full by-wire control.
 
 Open Source Car Control (OSCC) provides developers with a collection of firmware and hardware designs for computer control of their autonomous development vehicles. It's a modular, stable way of using software to interface with a vehicle’s communications network and control systems.
+
+**DriveKit:** If you're looking for a turn-key solution, we offer a commercially-supported vehicle control interface called DriveKit. DriveKit is a complete system for by-wire control of Kia Soul EV and Kia Niro Hybrid vehicles. It includes an integrated control module, automotive-grade wiring harnesses, e-stop switch, and additional vehicle control features –– plus it installs in under an hour. Visit https://polysync.io/drivekit/ for more information.
 
 OSCC allows developers to:
 
