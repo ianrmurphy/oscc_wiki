@@ -8,8 +8,6 @@ This wiki will guide you through the process, acting as the main source of docum
 
 Open Source Car Control (OSCC) provides developers with a collection of firmware and hardware designs for computer control of their autonomous development vehicles. It's a modular, stable way of using software to interface with a vehicle’s communications network and control systems.
 
-**DriveKit:** If you're looking for a turn-key solution, we offer a commercially-supported vehicle control interface called DriveKit. DriveKit is a complete system for by-wire control of Kia Soul EV and Kia Niro Hybrid vehicles. It includes an integrated control module, automotive-grade wiring harnesses, e-stop switch, and additional vehicle control features –– plus it installs in under an hour. Visit https://polysync.io/drivekit/ for more information.
-
 OSCC allows developers to:
 
 * Send control commands to the vehicle
@@ -19,3 +17,6 @@ OSCC allows developers to:
 Control commands are issued to the vehicle component ECUs via the steering wheel torque sensor, throttle position sensor, and brake position sensor. (Because the petrol Kia Soul isn’t brake by-wire capable, an auxiliary actuator is added to enable braking.) This low-level interface means that OSCC offers full-range control of the vehicle without altering the factory safety-case, spoofing CAN messages, or hacking ADAS features.
 
 Although we currently support only the 2014+ Kia Soul (conventional) and Kia Soul EV, the API and firmware have been designed to make it relatively easy to add functionality to any by-wire, OBD-II capable vehicle. Additionally, the separation between API and firmware means it's easier to modify and test parts of your program without having to update the flashed OSCC modules.
+
+*DriveKit: If you're looking for a turn-key solution, we offer a commercially-supported vehicle control interface called DriveKit. DriveKit is a complete system for by-wire control of Kia Soul EV and Kia Niro Hybrid vehicles. It includes an integrated control module, automotive-grade wiring harnesses, e-stop switch, and additional vehicle control features –– plus it installs in under an hour. Visit https://polysync.io/drivekit/ for more information.
+
