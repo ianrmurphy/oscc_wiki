@@ -2,7 +2,7 @@
 
 The throttle system of the Kia Soul is an Electric Throttle Control (ETC) system. Instead of a mechanical cable linkage between the throttle body and the accelerator pedal, there is a position sensor on the accelerator pedal and a motorized throttle body.
 
-![Stock Throttle Wiring](/images/throttle_module/throttle_stock_diagram.png)
+![Stock Throttle Wiring](images/throttle_module/throttle_stock_diagram.png)
 
 # Control
 
